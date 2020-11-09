@@ -32,6 +32,13 @@ jonka jälkeen WebGoat alkoi pyörimään koneella paikallisesti osoitteessa **l
 
 ![kuva3](./Kuvat/webgoat001.png)
 
+### Ratkaise WebGoatista tehtävät "HTTP Basics", "Developer tools", "CIA Triad" ja "A1 Injection (intro)"
+
+WebGoatin **"HTTP Basics"** ja **"CIA Triad"** onnistuivat helposti, sillä ne olivat lähinnä teoriaa ja muutamia hassuja testejä. **"Developer tools"** oli käytännössä kertausta siitä, mitä tehtiin ensimmäisen tehtävän kanssa HackTheBoxissa.
+
+**"A1 Injection"** tarjosi jo enemmän haastetta, harmaita hiuksia ajoittain. Tehtävässä tutustuttiin SQL-injektioihin teoriassa ja käytännössä. Haastavinta ei ollut itse SQL:n syntaksi vaan se, miten sai sen "koodin" sisään. Kesti hetken ennen kuin ymmärsin miten hipsut ja tupsut asetellaan.
+
+SQL-injektio ei ole vain SQL, vaan ymmärrystä pitää olla siitä, miten SQL ajetaan haavoittuvan sivuston koodissa, jotta hipsut, tupsut ja kommentit saadaan aseteltua oikein.
 
 ## Lähteet/linkit
 
