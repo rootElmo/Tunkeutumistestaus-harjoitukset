@@ -12,4 +12,31 @@ Tehtävän alkuun pääsi avaamalla selaimen __Developer Tools__it ja löytämä
 
 Tiedosto piti "deobfuskoida", jotta siitä sai jotain selvää. Tämän jälkeen saimme tietoomme linkin, josta löytyisi oletettavasti vinkkejä eteenpäin. Konsolissa voi myös ajaa komennon **makeInviteCode()**, joka antaa salakirjoitetun vinkin. 
 
+![kuva2](./Kuvat/hackthebox002.png)
+
 Saimme tietoomme, että lähettämällä POST-pyynnön tiettyyn osoitteeseen, saisimme vastineeksi **jotain**. Muistaakseni se, mitä saimme oli BASE64 salakirjoitettu pääsykoodi hacktheboxiin.
+
+### Asenna WebGoat ja kokeile, että pääset kirjautumaan sisään.
+
+Koneena harjoituksessa toimi jokin vanha luomani Xubuntu-virtuaalikone.
+
+WebGoating asennus oli käytännössä parilla hassulla komennolla tehty. Seurasin tiukasti [Teron luomia ohjeita](http://terokarvinen.com/2020/install-webgoat-web-pentest-practice-target/).
+
+Hain WebGoatin (ja WebWolfin) [WebGoatin julkaisusivulta](https://github.com/WebGoat/WebGoat/releases).
+
+Käynnistin WebGoatin komennolla
+
+	$ java -jar webgoat-server-8.1.0.jar
+
+jonka jälkeen WebGoat alkoi pyörimään koneella paikallisesti osoitteessa **localhost:8080/WebGoat**. Rekisteröin käyttäjän ja pääsin kirjautumaan sisään!
+
+![kuva3](./Kuvat/webgoat001.png)
+
+
+## Lähteet/linkit
+
+1. [HackTheBoxin invite sivusto](https://www.hackthebox.eu/invite)
+
+2. [Tero Karvinen - WebGoatin asennus](http://terokarvinen.com/2020/install-webgoat-web-pentest-practice-target/)
+
+3. [WebGoat](https://github.com/WebGoat/WebGoat/releases)
