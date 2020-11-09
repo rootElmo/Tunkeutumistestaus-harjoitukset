@@ -48,11 +48,13 @@ Esimerkiksi tehtävässä 12 fiktiivisen henkilön John Smithin palkka tuli päi
 
 ja palkka päivittyi. Tositilanteissa noin röyhkeä nousu palkassa herättäisi varmasti epäilyjä, mutta harjoituksessa keskityttiinkin tekniikkaan.
 
-![kuva5](../Kuvat/webgoat004.png)
+![kuva4](./Kuvat/webgoat004.png)
 
 ### Kuuntele jokin maksuvälineisiin liittyvä jakso Darknet Diaries -podcastista.
 
+Päätin ottaa **Darknet Diaries**:n jakson 52 kuunteluun tätä tehtävää varten. Jakso käsittelee **Magecart**ia. Magecartia käyttävä ryhmä tai ryhmät pyörittivät useampaa luottokortti-skimmaus huijausta verkon ylitse, mm. **British Airways**:n sivujen kautta n. 380 000:n käyttäjän maksukorttitietojen kerrottiin päätyneen Magecart-huijareiden käsiin vuonna 2018. 
 
+Sen sijaan, että Magecarttilaiset olisivat käyttäneet fyysisiä skimmereitä esim. bensa-asemoilla, taikka raha-automaateilla he käyttivät JavaScript-koodipätkiä, jotka toimivat kuin fyysiset skimmerit. Tämä hyökkäys tapahtuisi silloin Mika Raution esityksen mukaan **DMZ**-alueella.
 
 
 ## Lähteet/linkit
@@ -62,3 +64,5 @@ ja palkka päivittyi. Tositilanteissa noin röyhkeä nousu palkassa herättäisi
 2. [Tero Karvinen - WebGoatin asennus](http://terokarvinen.com/2020/install-webgoat-web-pentest-practice-target/)
 
 3. [WebGoat](https://github.com/WebGoat/WebGoat/releases)
+
+4. [Darknet Diaries](https://darknetdiaries.com/)
