@@ -1,3 +1,6 @@
+# !!!! TYÖN ALLA !!!!
+
+
 # XSS iso teht:
 
 Aloitin avaamalla dev toolit F12. Ajoin lomakkeen kerran läpi jo annetuilla arvoilla ja katsoin, millaisen viestin sain.
