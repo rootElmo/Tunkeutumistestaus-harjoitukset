@@ -38,7 +38,24 @@ WebGoatin **"HTTP Basics"** ja **"CIA Triad"** onnistuivat helposti, sillä ne o
 
 **"A1 Injection"** tarjosi jo enemmän haastetta, harmaita hiuksia ajoittain. Tehtävässä tutustuttiin SQL-injektioihin teoriassa ja käytännössä. Haastavinta ei ollut itse SQL:n syntaksi vaan se, miten sai sen "koodin" sisään. Kesti hetken ennen kuin ymmärsin miten hipsut ja tupsut asetellaan.
 
+![kuva4](./Kuvat/webgoat003.png)
+
 SQL-injektio ei ole vain SQL, vaan ymmärrystä pitää olla siitä, miten SQL ajetaan haavoittuvan sivuston koodissa, jotta hipsut, tupsut ja kommentit saadaan aseteltua oikein.
+
+Esimerkiksi tehtävässä 12 fiktiivisen henkilön John Smithin palkka tuli päivittää korkeammaksi kuin muiden työntekijöiden. Onnistuin lopulta syöttämällä SQL-lausekkeen
+
+	3SL99A'; UPDATE employees SET salary = '"999999999999999999"' WHERE last_name = '"Smith"' AND auth_tan = '"3SL99A"
+
+ja palkka päivittyi. Tositilanteissa noin röyhkeä nousu palkassa herättäisi varmasti epäilyjä, mutta harjoituksessa keskityttiinkin tekniikkaan.
+
+![kuva4](./Kuvat/webgoat004.png)
+
+### Kuuntele jokin maksuvälineisiin liittyvä jakso Darknet Diaries -podcastista.
+
+Päätin ottaa **Darknet Diaries**:n jakson 52 kuunteluun tätä tehtävää varten. Jakso käsittelee **Magecart**ia. Magecartia käyttävä ryhmä tai ryhmät pyörittivät useampaa luottokortti-skimmaus huijausta verkon ylitse, mm. **British Airways**:n sivujen kautta n. 380 000:n käyttäjän maksukorttitietojen kerrottiin päätyneen Magecart-huijareiden käsiin vuonna 2018. 
+
+Sen sijaan, että Magecarttilaiset olisivat käyttäneet fyysisiä skimmereitä esim. bensa-asemoilla, taikka raha-automaateilla he käyttivät JavaScript-koodipätkiä, jotka toimivat kuin fyysiset skimmerit. Tämä hyökkäys tapahtuisi silloin Mika Raution esityksen mukaan **DMZ**-alueella.
+
 
 ## Lähteet/linkit
 
@@ -47,3 +64,5 @@ SQL-injektio ei ole vain SQL, vaan ymmärrystä pitää olla siitä, miten SQL a
 2. [Tero Karvinen - WebGoatin asennus](http://terokarvinen.com/2020/install-webgoat-web-pentest-practice-target/)
 
 3. [WebGoat](https://github.com/WebGoat/WebGoat/releases)
+
+4. [Darknet Diaries](https://darknetdiaries.com/)
