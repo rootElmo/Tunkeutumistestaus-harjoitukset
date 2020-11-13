@@ -1,5 +1,8 @@
 # !!!! TYÖN ALLA !!!!
 
+# Harjoitus 2
+
+## Elmo Rohula
 
 # XSS iso teht:
 
@@ -67,32 +70,61 @@ Avasin myös webwolfin taustalle
     localhost:9090/webwolf
     incoming requests
 
+*Kommentti tehtävän teon jälkeen: eihän tuota webwolfia itseasiassa tarvinnutkaan tehtävän suoritukseen*
+
 painettuani get query, avasi webgoat uuden välilehden jossa ilmoitettiin, etten ollut onnistunut, sillä pyyntö tuli samalta hostilta (KUVA seasurf001). Minun pitäisi jostain saada siis "painettua" query selaimen ulkopuolelta tai toisen sivun kautta, jotta onnistuisin.
 
 Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan queryn tiettyyn paikkaan. https://www.w3schools.com/tags/att_form_target.asp
 
+![seasurf002](./kuvat/seasurf002.png)
+
 (KUVA seasurf002)
 
-targetin muuttaminen http://webwolf/landing/* muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
+targetin muuttaminen **http://webwolf/landing/*** muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
 
-Loin nopeasti webbisivun attack.html johon sijoitin:
+Loin nopeasti webbisivun **attack.html** johon sijoitin:
 
-/////// LAITA TÄHÄN attack001.html //////////////
+    <!DOCTYPE html>
+    <html lang="en">
+    <head></head>
+    <body>
+        <h1>ATTACK!!!</h1>
+        <form method="post" action="localhost:8080/WebGoat/csrf/confirm-flag-1">
+            <input type="submit" value="ATTACK">
+        </form>
+    </body
+    </html>
 
-Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi.
+![seasurf007](./kuvat/seasurf007.png)
+
+Sivun tarkoituksena on lähettää sama pyyntö, kuin mitä kohde sivu lähettää "**Submit Query**"-painikkeesta.
+
+Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi[<sup>1</sup>](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/).
 
     $ python3 -m http.server
 
-ja navigoin tiedostoon attack001.html (attack001.html oli alkuperäinen)
+ja navigoin tiedostoon attack001.html käyttäen tuota palvelintani, joka aukesi porttiin **8000** (attack001.html oli alkuperäinen)
 
-kuitenkin sivusto vinkui virhettä syötteessä (seasurf003).
+kuitenkin sivusto vinkui virhettä syötteessä: _Kommentti tehtävän teon jälkeen: syötteen charset encoding on aika irrelevanttia tässä tapauksessa. Huomiota olisi tullut kiinnittää kuvassa näkyvään alempaan virheilmoitukseen._ (seasurf003).
 
-LISÄSIN attack001.html:ään formiin "accept-charset='unknown'", sekä otin action:stä pois localhostin ja portin. Sain erilaisen virheilmoituksen. Sanoo, ettei POST toimi. Taidampa kokeilla GETiä. (seasurf004)
+![seasurf003](./kuvat/seasurf003.png)
 
-HUOMASIN TÄSSÄ VAIHEESSA, että olin tuijottanut Confirm Flag formin koodia inspectorissa ja käyttäytynyt sen mukaan. Ei ihme, ettei mikään pelitä. Tässä oli parin voimasanan mittainen huokaustuokio.
+LISÄSIN attack001.html:ään formiin "accept-charset='unknown'", sekä otin action:stä pois localhostin ja portin. Sain erilaisen virheilmoituksen. Sanoo, ettei POST toimi. Taidampa kokeilla GETiä. (seasurf004) 
+
+![seasurf004](./kuvat/seasurf004.png)
+
+HUOMASIN TÄSSÄ VAIHEESSA, että olin tuijottanut **Confirm Flag formin** koodia inspectorissa ja käyttäytynyt sen mukaan. Ei ihme, ettei mikään pelitä. Tässä oli parin **voimasanan mittainen huokaustuokio**.
 
 Katsoin parit vinkit sivun yläpalkista ja siellä sanottiin, että formissa on piilotettuja inputteja. Toden totta siellä olikin ja lisäsin tuon inputin omaan webbisivuuni. Formin targetiksi laitoin "_blank", sekä ohjasin pyynnön "localhost:8080/WebGoat.....", että POST menisi suoraan oikealle palvelimelle.
 
 Onnistuin saamaan vastauksen! (seasurf005)
 
+![seasurf005](./kuvat/seasurf005.png)
+
 Laitoin vastauksessa tulleen flagin alempaan lomakkeeseen ja sain onnistuneesti tehtävän läpi.
+
+![seasurf006](./kuvat/seasurf006.png)
+
+## Lähteet
+
+1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
