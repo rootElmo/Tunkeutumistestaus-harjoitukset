@@ -62,7 +62,7 @@ https://www.w3schools.com/jsref/met_doc_getelementsbyname.asp kokeiluja
 
 # XS REQUEST FORGERY:
 
-Basic Get CSRF:
+## Basic Get CSRF:
 
 Avasin myös webwolfin taustalle
 
@@ -103,21 +103,35 @@ Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi[<sup>1<
 
     $ python3 -m http.server
 
-ja navigoin tiedostoon attack001.html käyttäen tuota palvelintani, joka aukesi porttiin **8000** (attack001.html oli alkuperäinen)
+ja navigoin tiedostoon **attack001.html** - joka oli alkuperäisestä **attack.html**:stä tekemäni kopio - käyttäen tuota palvelintani, joka aukesi porttiin **8000** (attack001.html oli alkuperäinen)
 
 kuitenkin sivusto vinkui virhettä syötteessä: _Kommentti tehtävän teon jälkeen: syötteen charset encoding on aika irrelevanttia tässä tapauksessa. Huomiota olisi tullut kiinnittää kuvassa näkyvään alempaan virheilmoitukseen._ (seasurf003).
 
 ![seasurf003](./kuvat/seasurf003.png)
 
-LISÄSIN attack001.html:ään formiin "accept-charset='unknown'", sekä otin action:stä pois localhostin ja portin. Sain erilaisen virheilmoituksen. Sanoo, ettei POST toimi. Taidampa kokeilla GETiä. (seasurf004) 
+LISÄSIN attack001.html:ään formiin **"accept-charset='unknown'"**, sekä otin **action:stä** pois **localhostin** ja **portin**. Sain erilaisen virheilmoituksen. Sanoo, ettei POST toimi. Taidampa kokeilla **GET**iä.
 
 ![seasurf004](./kuvat/seasurf004.png)
 
 HUOMASIN TÄSSÄ VAIHEESSA, että olin tuijottanut **Confirm Flag formin** koodia inspectorissa ja käyttäytynyt sen mukaan. Ei ihme, ettei mikään pelitä. Tässä oli parin **voimasanan mittainen huokaustuokio**.
 
-Katsoin parit vinkit sivun yläpalkista ja siellä sanottiin, että formissa on piilotettuja inputteja. Toden totta siellä olikin ja lisäsin tuon inputin omaan webbisivuuni. Formin targetiksi laitoin "_blank", sekä ohjasin pyynnön "localhost:8080/WebGoat.....", että POST menisi suoraan oikealle palvelimelle.
+Katsoin parit vinkit sivun yläpalkista ja siellä sanottiin, että formissa on piilotettuja inputteja. Toden totta siellä olikin ja lisäsin tuon inputin omaan webbisivuuni. Formin targetiksi laitoin **"_blank"**, sekä ohjasin pyynnön **"localhost:8080/WebGoat....."**, että POST menisi suoraan oikealle palvelimelle.
 
-Onnistuin saamaan vastauksen! (seasurf005)
+_Kommentti tehtävän teon jälkeen: seuraavaan koodipätkään lisätty "body"-tägin päätteeksi ">", joka puuttui alkuperäisestä tiedostosta. Virhe näkyy kuvankaappauksissa. Tämä ei kuitenkaan jostain syystä vaikuttanut tehtävän tekoon._
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head></head>
+    <body>
+        <h1>ATTACK!!!</h1>
+        <form method="POST" accept-charset="UNKNOWN" action="http://localhost:8080/WebGoat/csrf/basic-get-flag" target="_blank">
+            <input type="submit" value="ATTACK">
+            <input name="csrf" type="hidden" value="false">
+        </form>
+    </body>
+    </html>
+
+Onnistuin saamaan vastauksen!
 
 ![seasurf005](./kuvat/seasurf005.png)
 
