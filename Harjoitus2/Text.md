@@ -80,7 +80,7 @@ Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan q
 
 (KUVA seasurf002)
 
-targetin muuttaminen http://webwolf/landing/* muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
+targetin muuttaminen **http://webwolf/landing/*** muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
 
 Loin nopeasti webbisivun **attack.html** johon sijoitin:
 
@@ -99,7 +99,7 @@ Loin nopeasti webbisivun **attack.html** johon sijoitin:
 
 Sivun tarkoituksena on lähettää sama pyyntö, kuin mitä kohde sivu lähettää "**Submit Query**"-painikkeesta.
 
-Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi<sup>1</sup>.
+Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi[<sup>1</sup>](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/).
 
     $ python3 -m http.server
 
