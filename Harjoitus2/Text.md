@@ -63,12 +63,32 @@ Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuu
 
 **A6 Security Misconfiguration**
 
+  * Järjestelmä on haavoittuvainen jos suojauksen mahdollistavat ohjelmat ovat konfiguroitu väärin tai puutteellisesti.
+  * Haavoittuvassa järjestelmässä saattaa olla turhia palveluita, jotka lisävät hyökkäysrajapintaa
+  * Päivittämättömät järjestelmät voivat olla haavoittuvia jo löydettyihin hyökkäyksiin, jos niitä ei ole päivitetty suojauksiltaan ajan tasalle.
 
+**Esimerkki:**
 
+Organisaation tuotantopalvelimelle on jäänyt vanhoja ohjelmia pyörimään, eikä niitä olla muistettu poistaa tai konfiguroida turvallisiksi. Hyökkääjä pääsee hyödyntämään näitä hyökkäyksessään jo tunnettujen haavoittuvuuksien kautta.
 
+**A7 Cross-Site Scripting**
 
+  * "Reflected XSS": Sovellus mahdollistaa hyökkääjän ajamaan haluamaansa HTML ja JavaScript koodia urhin selaimella.
+  * "Stored XSS": Ohjelma/palvelu tallettaa käyttäjän syötteitä, joita joku ulkopuolinen pääsee myöhemmin tarkastelemaan
+  * "DOM XSS": Haavoittuvuudet voivat johtaa mm. monivaiheisen tunnistautumisen tai vihamielisen ohjelmiston lataukseen uhrin koneelle.
+  * Pääpiirteittän, haavoittuvainen järjestelmä sallii hyökkääjän käyttää joko ulkopuolisten organisaatioiden webbipalveluja, taikka hyökkäykseen tarkoituksella luotuja vihamielisiä sivustoja.
 
+**Esimerkki:**
 
+Katso harjoituksesta kohta **Get Basic CSRF**
+
+**A8 Insecure Deserialization**
+
+_Tätä kohtaa en tosissani oikein ymmärtänyt_
+
+**A9 Using Components with Known Vulnerabilities**
+
+  * 
 
 
 LÄHTEET:
