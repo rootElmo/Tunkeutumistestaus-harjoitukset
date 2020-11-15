@@ -42,7 +42,19 @@ Hyökkääjä on löytänyt kohde-organisaationsa jonkin palvelimen ja päättä
 
 **A4 XML External Entities**
 
+  * Järjestelmä on haavoittuvainen hyökkäykselle, jos hyökkääjä pääsee ujuttamaan vihamielisiä XML-tiedostoja järjestelmien käsiteltäväksi.
+  * Nykyaikana harvinaisempi haavoittuvuus
+  * XXE:lle haavoittuvainen järjestelmä on todennäköisesti myös haavoittuvainen palvelunestohyökkäyksille
 
+**Esimerkki:**
+
+Suojaamattomassa palvelussa, jossa hyökkääjä voi ujuttaa XML:ää järjestelmään ja pyytää vaikkapa salasanoja sisältävän tiedoston tulostettavaksi. [Kohdassa "Exokiutub XXE to retrieve files"](https://portswigger.net/web-security/xxe).
+
+
+
+LÄHTEET:
+
+https://portswigger.net/web-security/xxe
 
 
 
