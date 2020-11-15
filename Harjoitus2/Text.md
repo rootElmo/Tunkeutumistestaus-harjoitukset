@@ -115,6 +115,42 @@ https://portswigger.net/web-security/xxe
 
 Tässä osassa päästään tekemään asioita konkreettisesti WebGoatin avulla.
 
+## A2 Broken Authentication
+
+### Secure Passwords
+
+Tehtävä oli lähinnä teoriaa. Kuitenkin yhdessä kohdassa sai luoda itselleen salasanan ja katsoa, kuinka kauan luomasi salasanan murtamiseen menisi.
+
+![xss005](./kuvat/xss005.png)
+
+### Authentication Bypasses / 2FA Password Reset
+
+
+![login002](./kuvat/login002.png)
+
+
+## A3 Sensitive Data Exposure
+
+### Insecure Login
+
+Terolla oli sivuillaan vinkki tämän tehtävän tekoon. Tehtävä vaatisi jotain paketti nuuskijaa. Ajoin Teron ohjeiden mukaisesti seuraavan komennon:
+
+	$ sudo tshark -i any -V -Y 'http.request.method == POST'
+
+Komento käynnistäisi **wiresharkin** ja kuuntelisi kaikkia **POST** pyyntöjä. Painoin seuraavaksi sivulla näkyvää "Log in"-painiketta ja wireshark ilmoitti, että jotain on tarttunut haaviin.
+
+![login001](./kuvat/login001.png)
+
+Sieltähän löytyi salakirjoittamattomana tekstinä suoraan kirjautumistunnukset
+
+	Käyttäjänimi: CaptainJack
+	Salasana: BlackPearl
+
+Syöttämällä nämä sivun lomakkeeseen tuli tehtävä ratkaistuksi.
+
+![login002](./kuvat/login002.png)
+
+
 ## A7 Cross-Site Scripting (XSS)
 
 ### Try It! Reflected XSS
@@ -205,7 +241,7 @@ Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan q
 
 ![seasurf002](./kuvat/seasurf002.png)
 
-targetin muuttaminen **http://webwolf/landing/*** muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
+targetin muuttaminen **http://webwolf/landing/** muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
 
 Loin nopeasti webbisivun **attack.html** johon sijoitin:
 
