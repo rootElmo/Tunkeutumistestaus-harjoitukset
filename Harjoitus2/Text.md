@@ -50,6 +50,20 @@ Hyökkääjä on löytänyt kohde-organisaationsa jonkin palvelimen ja päättä
 
 Suojaamattomassa palvelussa, jossa hyökkääjä voi ujuttaa XML:ää järjestelmään ja pyytää vaikkapa salasanoja sisältävän tiedoston tulostettavaksi. [Kohdassa "Exokiutub XXE to retrieve files"](https://portswigger.net/web-security/xxe).
 
+**A5 Broken Access Control**
+
+  * Haavoittuvassa järjestelmässä hyökkääjä pystyy erinäköisten keinojen avulla toimimaan järjestelmässä oikeuksilla, joilla hänen ei tulisi pystyä toimimaan.
+  * Jos esimerkiksi muokkaamalla webbipalvelun URL:ia tavallinen käyttäjä pääsee järjestelmänvalvojan hallintapaneeliin on kyseessä tämä haavoittuvuus.
+
+**Esimerkki:**
+
+Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuulumatonta käyttäkätunnusta muokkaamalla URL:ia. Syöttämällä **acc:n** parametriksi **1234**, hyökkääjä pääsee näkemään tuon käyttäjän tiedot
+
+	https://www.bigcorp.com/app/accinfo?acc=1234
+
+**A6 Security Misconfiguration**
+
+
 
 
 LÄHTEET:
