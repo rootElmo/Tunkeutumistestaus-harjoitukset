@@ -1,10 +1,6 @@
-# !!!! TYÖN ALLA !!!!
-
 # Harjoitus 2
 
-## Elmo Rohula
-
-# Lukuläksyt
+## Lukuläksyt
 
 ## OWASP 10:
 
@@ -115,7 +111,13 @@ https://portswigger.net/web-security/xxe
 
 
 
-# XSS iso teht:
+# WebGoat harjoitukset
+
+Tässä osassa päästään tekemään asioita konkreettisesti WebGoatin avulla.
+
+## A7 Cross-Site Scripting (XSS)
+
+### Try It! Reflected XSS
 
 Aloitin avaamalla dev toolit F12. Ajoin lomakkeen kerran läpi jo annetuilla arvoilla ja katsoin, millaisen viestin sain.
 
@@ -142,6 +144,8 @@ alert(document.getElementsByClassName("field1").value); ajettu consolessa, palau
 
 TAJUSIN ETTÄ:
     - hain väärällä tapaa field1:n arvoa. Olisi pitänyt hakea getElementsByName:lla, sillä getElementsByClassName hakee classin nimen mukaan. getElementsByName palauttaa myös kaikki instanssit listana (???) joten olisi tarvinnut määritellä, mikä instanssi noista field1:stä palautetaan (getElementsByName('foobar')[0].value).
+
+![xss_alert002](./kuvat/xss_alert002.png)
 
 loppuun xss_alert002.png
 
