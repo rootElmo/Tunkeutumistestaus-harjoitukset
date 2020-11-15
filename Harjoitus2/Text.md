@@ -61,7 +61,12 @@ Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuu
 
 	https://www.bigcorp.com/app/accinfo?acc=1234
 
-**A6 Security Misconfiguration** 
+**A6 Security Misconfiguration**
+
+
+
+
+
 
 
 
