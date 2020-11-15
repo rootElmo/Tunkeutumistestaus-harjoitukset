@@ -125,9 +125,19 @@ Tehtävä oli lähinnä teoriaa. Kuitenkin yhdessä kohdassa sai luoda itselleen
 
 ### Authentication Bypasses / 2FA Password Reset
 
+Tehtävässä on tarkoitus ohittaa käyttäjätunnuksen varmistus jollain keinolla. Osasin veikata heti alkuun, että lomakesivun **HTML**:ssä olisi joitain piilotettuja **inputteja**.
 
-![login002](./kuvat/login002.png)
+![2fa001](./kuvat/2fa001.png)
 
+Sieltä tosiaan löytyi jotain!
+
+En osannut itse lähteä selvittämään tätä tämän pidemmälle, joten katsoin sivun yläkulmasta vinkkejä. Sivu ehdottaa muuttamaan lomakkeen **secQuestion0** ja **secQuestion1** parametrien nimiä.
+
+Nimesin edellämainitut parametrit nimillä **secQuestion6** ja **secQuestion7**. Painoin lomakkeen **Submit**-painiketta ja tehtävä ratkesi!
+
+![2fa002](./kuvat/2fa002.png)
+
+_Kommentti: Olin tehnyt tämän tehtävän aikaisemminkin kokeilumielessä, enkä silloin jostain syystä saanut millään tehtävää läpi, vaikka nimesin lomakkeen parametrit uudelleen. Olin kokeillut hidden inputtien muuttamista, mutten muista mitä kokeilin, sillä unohdin tehdä muistiinpanoja siitä._
 
 ## A3 Sensitive Data Exposure
 
