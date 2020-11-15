@@ -14,7 +14,7 @@
   * Esiintyy etenkin vanhoissa, päivittämättä jätetyissä sovelluksissa, joissa esim. SQL-lausekkeiden katenointi on mahdollista syöte-kenttiin.
   * Injektio-hyökkäyksen vaikuttavuus on vaikuttavuudeltaan sitä tehokkaampi, mitä arkaluontoisempaa taikka kriittisempää tietoa sillä saadaan esille.
 
-Esimerkki:
+**Esimerkki:**
 
 Jonkin organisaation webbipalvelun kirjautumislomake ei käytä SQL:n syöttämiseen "prepared statementejä", vaan parsii käyttäjän syötteistä lopullisen SQL-lausekkeen, joka lähtee tietokantapalvelimelle. Hyökkääjän on mahdollista lisätä syötekenttiin oma SQL-lausekkeensa lisäämällä hipsun syötteen eteen:
 
@@ -27,6 +27,22 @@ Jonkin organisaation webbipalvelun kirjautumislomake ei käytä SQL:n syöttämi
   * Haavoittuvuuksia voidaan estää mm. vaatimalla monimutkaisia salasanoja, estämällä useamman väärän kirjautumisyrityksen putkittamisen, sekä kaksi- tai useampivaiheisen tunnistautumisen käytön tunnistautuessa palveluihin.
 
 **Esimerkki:**
+
+Organisaation webbipalvelun kirjautumislomake antaa käyttäjän syöttää väärän tunnuksen ja salasanan yhdistelmän niin monta kertaa kuin käyttäjä ne jaksaa syöttää. Hyökkääjä voisi käyttää apunaan tunnetuimpien käyttäjänimien ja salasanojen listoja ja "brute forcella" kokeilla niitä yksitellen jonkin ohjelmapätkän avulla. Varsinkin jos hyökkääjällä on tiedossa organisaation jäsenien oikeita kirjautumistunnuksia, on hyökkäys erittäin vaarallinen.
+
+**A3 Sensitive Data Exposure**
+
+  * Haavoittuvuudet perustuvat kryptaamatton tiedon välitykseen eri järjestelmien välillä, josta mahdollinen hyökkääjä voi ne haistella
+  * Vaikka tieto olisikin jotenkin kryptattu, eivät kaikki salakirjoitukset ole toistensa kanssa tasavertaisia ja jotkin murtuvat hetkessä nykyaikaisilla työkaluilla.
+  * Haavoittuvuus voi myös ilmetä niin, että webbipalvelu tai jokin muu järjestelmä antaa ulos tietoa, jonka kuuluisi olla salaista. Esimerkiksi henkilön henkilötunnus näkyy jossain, mistä se olisi myös ulkopuolisten tahojen käytettävissä.
+
+**Esimerkki:**
+
+Hyökkääjä on löytänyt kohde-organisaationsa jonkin palvelimen ja päättää haistella palvelimen tietoliikennettä. Hyökkääjä onnistuu saamaan useamman käyttäjätunnuksen haltuunsa, sillä ne välittyvät organisaation sisäverkossa salakirjoittamattomana tekstinä.
+
+**A4 XML External Entities**
+
+
 
 
 
