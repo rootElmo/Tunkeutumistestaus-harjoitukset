@@ -6,7 +6,9 @@
 
 # Lukuläksyt
 
-## OWASP 01:
+## OWASP 10:
+
+OWASP 10 lukuläksyn aiheena oli tutustua OWASPin tarjoamaan raporttiin yleisimmistä tietojärjestelmien haavoittuvaisuuksista.
 
 ### A1 "Injection"
 
@@ -88,8 +90,23 @@ _Tätä kohtaa en tosissani oikein ymmärtänyt_
 
 ### A9 Using Components with Known Vulnerabilities
 
-  * 
+  * Pätee lähinnä vanhoihin ohjelmistoversioihin, joihin on ajan kanssa löytynyt haavoittuvuuksia. Järjestelmissä päivittämättä jääneet ohjelmat ja komponentit ovat ajan kanssa kasvava riski
+  * Valmiiden hyökkäyksien hyväksikäyttö on yleistä, sillä hyökkääjän on helppo toteuttaa hyökkäyksensä jos hän löytää jo valmiin hyökkäyksen kohteelleen ilman sen kummempia kustomointeja.
+  * Yksi helpoimmista estokeinoista on ohjelmistojen ajan tasalla pitäminen
 
+**Esimerkki:**
+
+Hyökkäääjä huomaa kohdetta tiedustellessaan porttiskannaamalla, että kohteesta löytyy verkkoon avoimia, vanhoja palveluja. Hän löytää näihin nopeasti valmiin hyökkäyksen ja pääsee käsiksi järjestelmiin.
+
+### A10 Isufficient Logging & Monitoring
+
+  * Osana useimpia hyökkäyksiä, sillä hyökkääjät pyrkivät huomaamattomuuteen, sekä luottavat huonoon palvelujen valvontaan
+  * Järjestelmä on haavoittuvainen, jos palvelin pitää huonoa lokia, tai ei pidä lokia ollenkaan mm. kirjautumisista
+  * Järjestelmä on haavoittuvainen jos se ei hälytä tai huomio sille tuntemattomista kohteista tulevia pyyntöjä
+
+**Esimerkki:**
+
+Hyökkääjä onnistuu saamaan organisaation tiedostopalvelimen haltuunsa. Hyökkääjä huomaa, että organisaatio ei ole reagoinut murtoon kuukausiin ja päättää tästä innostuneena alkaa etsimään organisaation muita mahdollisia palvelimia siinä toivossa, että valvonta on niissäkin yhtä huonoa.
 
 LÄHTEET:
 
