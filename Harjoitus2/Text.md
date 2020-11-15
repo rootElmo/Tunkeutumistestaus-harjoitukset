@@ -8,19 +8,19 @@
 
 ## OWASP 01:
 
-**### A1 "Injection"**
+### A1 "Injection"
 
   * Sovellus, joka ei validoi käyttäjän syötteitä on haavoittuvainen näille hyökkäyksille.
   * Esiintyy etenkin vanhoissa, päivittämättä jätetyissä sovelluksissa, joissa esim. SQL-lausekkeiden katenointi on mahdollista syöte-kenttiin.
   * Injektio-hyökkäyksen vaikuttavuus on vaikuttavuudeltaan sitä tehokkaampi, mitä arkaluontoisempaa taikka kriittisempää tietoa sillä saadaan esille.
 
-**### Esimerkki:**
+**Esimerkki:**
 
 Jonkin organisaation webbipalvelun kirjautumislomake ei käytä SQL:n syöttämiseen "prepared statementejä", vaan parsii käyttäjän syötteistä lopullisen SQL-lausekkeen, joka lähtee tietokantapalvelimelle. Hyökkääjän on mahdollista lisätä syötekenttiin oma SQL-lausekkeensa lisäämällä hipsun syötteen eteen:
 
 	' OR '1' = '1
 
-**A2 "Broken Authentication"**
+### A2 "Broken Authentication"
 
   * Hyökkäys käyttää hyväksi huonosti toteutettuja käyttäjän tunnistamiskeinoja
   * Järjestelmä joka on tällaisen haavoittuvuuden alainen on sellainen jossa mm. järjestelmä sallii heikkojen salasanojen käytön, taikka loputtoman peräkkäisen tunnistautumisyrityksen sallimisen
@@ -30,7 +30,7 @@ Jonkin organisaation webbipalvelun kirjautumislomake ei käytä SQL:n syöttämi
 
 Organisaation webbipalvelun kirjautumislomake antaa käyttäjän syöttää väärän tunnuksen ja salasanan yhdistelmän niin monta kertaa kuin käyttäjä ne jaksaa syöttää. Hyökkääjä voisi käyttää apunaan tunnetuimpien käyttäjänimien ja salasanojen listoja ja "brute forcella" kokeilla niitä yksitellen jonkin ohjelmapätkän avulla. Varsinkin jos hyökkääjällä on tiedossa organisaation jäsenien oikeita kirjautumistunnuksia, on hyökkäys erittäin vaarallinen.
 
-**A3 Sensitive Data Exposure**
+### A3 Sensitive Data Exposure
 
   * Haavoittuvuudet perustuvat kryptaamatton tiedon välitykseen eri järjestelmien välillä, josta mahdollinen hyökkääjä voi ne haistella
   * Vaikka tieto olisikin jotenkin kryptattu, eivät kaikki salakirjoitukset ole toistensa kanssa tasavertaisia ja jotkin murtuvat hetkessä nykyaikaisilla työkaluilla.
@@ -40,7 +40,7 @@ Organisaation webbipalvelun kirjautumislomake antaa käyttäjän syöttää vä�
 
 Hyökkääjä on löytänyt kohde-organisaationsa jonkin palvelimen ja päättää haistella palvelimen tietoliikennettä. Hyökkääjä onnistuu saamaan useamman käyttäjätunnuksen haltuunsa, sillä ne välittyvät organisaation sisäverkossa salakirjoittamattomana tekstinä.
 
-**A4 XML External Entities**
+### A4 XML External Entities
 
   * Järjestelmä on haavoittuvainen hyökkäykselle, jos hyökkääjä pääsee ujuttamaan vihamielisiä XML-tiedostoja järjestelmien käsiteltäväksi.
   * Nykyaikana harvinaisempi haavoittuvuus
@@ -50,7 +50,7 @@ Hyökkääjä on löytänyt kohde-organisaationsa jonkin palvelimen ja päättä
 
 Suojaamattomassa palvelussa, jossa hyökkääjä voi ujuttaa XML:ää järjestelmään ja pyytää vaikkapa salasanoja sisältävän tiedoston tulostettavaksi. [Kohdassa "Exokiutub XXE to retrieve files"](https://portswigger.net/web-security/xxe).
 
-**A5 Broken Access Control**
+### A5 Broken Access Control
 
   * Haavoittuvassa järjestelmässä hyökkääjä pystyy erinäköisten keinojen avulla toimimaan järjestelmässä oikeuksilla, joilla hänen ei tulisi pystyä toimimaan.
   * Jos esimerkiksi muokkaamalla webbipalvelun URL:ia tavallinen käyttäjä pääsee järjestelmänvalvojan hallintapaneeliin on kyseessä tämä haavoittuvuus.
@@ -61,7 +61,7 @@ Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuu
 
 	https://www.bigcorp.com/app/accinfo?acc=1234
 
-**A6 Security Misconfiguration**
+### A6 Security Misconfiguration
 
   * Järjestelmä on haavoittuvainen jos suojauksen mahdollistavat ohjelmat ovat konfiguroitu väärin tai puutteellisesti.
   * Haavoittuvassa järjestelmässä saattaa olla turhia palveluita, jotka lisävät hyökkäysrajapintaa
@@ -71,7 +71,7 @@ Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuu
 
 Organisaation tuotantopalvelimelle on jäänyt vanhoja ohjelmia pyörimään, eikä niitä olla muistettu poistaa tai konfiguroida turvallisiksi. Hyökkääjä pääsee hyödyntämään näitä hyökkäyksessään jo tunnettujen haavoittuvuuksien kautta.
 
-**A7 Cross-Site Scripting**
+### A7 Cross-Site Scripting
 
   * "Reflected XSS": Sovellus mahdollistaa hyökkääjän ajamaan haluamaansa HTML ja JavaScript koodia urhin selaimella.
   * "Stored XSS": Ohjelma/palvelu tallettaa käyttäjän syötteitä, joita joku ulkopuolinen pääsee myöhemmin tarkastelemaan
@@ -82,11 +82,11 @@ Organisaation tuotantopalvelimelle on jäänyt vanhoja ohjelmia pyörimään, ei
 
 Katso harjoituksesta kohta **Get Basic CSRF**
 
-**A8 Insecure Deserialization**
+### A8 Insecure Deserialization
 
 _Tätä kohtaa en tosissani oikein ymmärtänyt_
 
-**A9 Using Components with Known Vulnerabilities**
+### A9 Using Components with Known Vulnerabilities
 
   * 
 
