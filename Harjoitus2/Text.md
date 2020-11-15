@@ -68,6 +68,9 @@ Hyökkääjä pääsee organisaation webbipalvelussa käyttämään hänelle kuu
 
 
 
+
+
+
 LÄHTEET:
 
 https://portswigger.net/web-security/xxe
