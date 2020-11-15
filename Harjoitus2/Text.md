@@ -121,33 +121,46 @@ Tässä osassa päästään tekemään asioita konkreettisesti WebGoatin avulla.
 
 Aloitin avaamalla dev toolit F12. Ajoin lomakkeen kerran läpi jo annetuilla arvoilla ja katsoin, millaisen viestin sain.
 
+![xss003](./kuvat/xss003.png)
+
 Heti hälytti, sillä selain tulostaa käyttäjälle syötteen, jossa on kentästä "Enter your creddit card number" käyttäjän syöttämä luottokortin tunnus. Tämän oltiin sanottu olevan yksi mahdollinen hyökkäyksen mahdollistavista paikoista.
 
 Seuraavaksi olisi aika etsiä sopivaa hyökkäyspintaa.
 
 Katsoin Devtoolsien Network välilehdestä, jos lähettämäni pyyntö olisi antanut jotain jännää. Ei ainakaan mikään osunut silmään. Arvelen, että tulisi taas muokata itse HTML:ää, jotta saisin jonkin Javascript pätkän ajettua. (Try again. We do want to see this specific JavaScript (in case you are trying to do something more fancy).
 
-Ajoin seuraavaksi pari komentoa, ihan vruteforce mielessä, ilman kummempaa taka-ajatusta.
+Ajoin seuraavaksi pari komentoa dev-toolsien konsolissa, ihan bruteforce mielessä, ilman kummempaa taka-ajatusta.
 
     alert(/WebGoat/CrossSiteScripting/attack5a);
     alert(document./WebGoat/CrossSiteScripting/attack5a);
 
 Ajattelin tämän antavan jotain vänkää ulos, mutta eipä tullut.
 
-Katsoin pari vinkkiä sivun yläkulmasta. Vinkit antoivat jo pari sellaista mitä olin oivaltanut itse (mikä tieto "echotaan" takaisin käyttäjälle), mutta sitten tajusin, että minun pitäisi syöttää haluamani JS johonkin tekstikenttään sen ajamiseksi. Katsoin takaperin ohjeita ja vinkkejä harjoituksen muista kohdista ja mietin, voisinko laitaa `<script>`-tägien sisään jotain, jolla saisin "alertoitua" itselleni tuon luottokortti tiedon.
+Katsoin pari vinkkiä sivun yläkulmasta. Vinkit antoivat jo pari sellaista mitä olin oivaltanut itse (mikä tieto "echotaan" takaisin käyttäjälle), mutta sitten tajusin, että minun pitäisi syöttää haluamani JS johonkin tekstikenttään sen ajamiseksi. Katsoin takaperin ohjeita ja vinkkejä harjoituksen muista kohdista ja mietin, voisinko laitaa **`<script>`**-tägien sisään jotain, jolla saisin "alertoitua" itselleni tuon luottokortti tiedon.
 
-    4128 3214 0002 1999 <script>alert(document.field1)</script> // ei toiminut, mutta alert näkyi! (xss_alert001)
+    4128 3214 0002 1999 <script>alert(document.field1)</script>
 
-    <script>alert(document.field1.value)</script> // tehtävä meni läpi, mutta mitään ei näkynyt
+Ei tuottanut haluttua lopputulosta, mutta alert näkyi!
 
-alert(document.getElementsByClassName("field1").value); ajettu consolessa, palautti undefined
+![xssalert001](./kuvat/xss_alert001.png)
+
+Seuraavaksi kokeilin:
+
+    <script>alert(document.field1.value)</script>
+
+Tällä tehtävä meni läpi, mutta mitään ei tapahtunut.
+
+Ajoin seuraavan **dev-toolsin** konsolissa, mutta sain tulokseksi undefined:
+
+	alert(document.getElementsByClassName("field1").value);
+
+![xss004](./kuvat/xss004.png)
 
 TAJUSIN ETTÄ:
     - hain väärällä tapaa field1:n arvoa. Olisi pitänyt hakea getElementsByName:lla, sillä getElementsByClassName hakee classin nimen mukaan. getElementsByName palauttaa myös kaikki instanssit listana (???) joten olisi tarvinnut määritellä, mikä instanssi noista field1:stä palautetaan (getElementsByName('foobar')[0].value).
 
-![xss_alert002](./kuvat/xss_alert002.png)
+![xssalert002](./kuvat/xss_alert002.png)
 
-loppuun xss_alert002.png
 
 LISÄYSTÄ:
 
