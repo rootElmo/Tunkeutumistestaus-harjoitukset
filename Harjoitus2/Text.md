@@ -156,15 +156,11 @@ Ajoin seuraavan **dev-toolsin** konsolissa, mutta sain tulokseksi undefined:
 
 ![xss004](./kuvat/xss004.png)
 
-TAJUSIN ETTÄ:
-    - hain väärällä tapaa field1:n arvoa. Olisi pitänyt hakea getElementsByName:lla, sillä getElementsByClassName hakee classin nimen mukaan. getElementsByName palauttaa myös kaikki instanssit listana (???) joten olisi tarvinnut määritellä, mikä instanssi noista field1:stä palautetaan (getElementsByName('foobar')[0].value).
+Tajusin, että hain väärällä tapaa **field1**:n arvoa. Olisi pitänyt hakea **getElementsByName**:lla, sillä **getElementsByClassName** hakee classin nimen mukaan. **getElementsByName** palauttaa myös kaikki instanssit listana (tai näin ymmärsin), joten olisi tarvinnut määritellä, mikä instanssi noista **field1**:stä palautetaan (**getElementsByName('foobar')[0].value**).
 
 ![xssalert002](./kuvat/xss_alert002.png)
 
-
-LISÄYSTÄ:
-
-Kokeiltu, ei feedbäkkiä
+Kokeilin vielä seuraaviakin syötteitä, mutta saamatta sen kummempia tuloksia.
 
     <script>
         function function123(){
@@ -172,6 +168,7 @@ Kokeiltu, ei feedbäkkiä
             alert(x);
         }
     </script>
+
 
     <script>
         function function123(){
@@ -181,16 +178,18 @@ Kokeiltu, ei feedbäkkiä
         }
     </script>
 
+
     <script>function function123(){var x = document.getElementsByName("field1")[0].value; alert(x);}</script>
 
 
-LÄHTEET: https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName Tsekkasin JS,
-https://www.w3schools.com/jsref/met_doc_getelementsbyname.asp kokeiluja
 
+## LÄHTEET: 
 
-# XS REQUEST FORGERY:
+[Mozillan Doxit](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
 
-## Basic Get CSRF:
+## A8:2013 Request Forgeries
+
+### Basic Get CSRF:
 
 Avasin myös webwolfin taustalle
 
@@ -202,11 +201,9 @@ Avasin myös webwolfin taustalle
 
 painettuani get query, avasi webgoat uuden välilehden jossa ilmoitettiin, etten ollut onnistunut, sillä pyyntö tuli samalta hostilta (KUVA seasurf001). Minun pitäisi jostain saada siis "painettua" query selaimen ulkopuolelta tai toisen sivun kautta, jotta onnistuisin.
 
-Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan queryn tiettyyn paikkaan. https://www.w3schools.com/tags/att_form_target.asp
+Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan queryn tiettyyn paikkaan. Lueskelin lisää [täältä](https://www.w3schools.com/tags/att_form_target.asp)
 
 ![seasurf002](./kuvat/seasurf002.png)
-
-(KUVA seasurf002)
 
 targetin muuttaminen **http://webwolf/landing/*** muotoon ei tarjonnut vastausta. Tajusin, että eihän tässä pyydetä lomakkeen tietojen lähetystä ulos, vaan lomakkeen "submittausta" ulkopuolelta.
 
