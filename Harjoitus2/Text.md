@@ -104,10 +104,6 @@ Hyökkäääjä huomaa kohdetta tiedustellessaan porttiskannaamalla, että kohte
 
 Hyökkääjä onnistuu saamaan organisaation tiedostopalvelimen haltuunsa. Hyökkääjä huomaa, että organisaatio ei ole reagoinut murtoon kuukausiin ja päättää tästä innostuneena alkaa etsimään organisaation muita mahdollisia palvelimia siinä toivossa, että valvonta on niissäkin yhtä huonoa.
 
-LÄHTEET:
-
-https://portswigger.net/web-security/xxe
-
 
 
 
@@ -141,6 +137,8 @@ Nimesin edellämainitut parametrit nimillä **secQuestion6** ja **secQuestion7**
 
 _Kommentti: Olin tehnyt tämän tehtävän aikaisemminkin kokeilumielessä, enkä silloin jostain syystä saanut millään tehtävää läpi, vaikka nimesin lomakkeen parametrit uudelleen. Olin kokeillut hidden inputtien muuttamista, mutten muista mitä kokeilin, sillä unohdin tehdä muistiinpanoja siitä._
 
+
+
 ## A3 Sensitive Data Exposure
 
 ### Insecure Login
@@ -161,6 +159,7 @@ Sieltähän löytyi salakirjoittamattomana tekstinä suoraan kirjautumistunnukse
 Syöttämällä nämä sivun lomakkeeseen tuli tehtävä ratkaistuksi.
 
 ![login002](./kuvat/login002.png)
+
 
 
 ## A7 Cross-Site Scripting (XSS)
@@ -231,10 +230,6 @@ Kokeilin vielä seuraaviakin syötteitä, mutta saamatta sen kummempia tuloksia.
 
 
 
-## LÄHTEET: 
-
-[Mozillan Doxit](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
-
 ## A8:2013 Request Forgeries
 
 ### Basic Get CSRF:
@@ -280,11 +275,11 @@ Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi[<sup>1<
 
 ja navigoin tiedostoon **attack001.html** - joka oli alkuperäisestä **attack.html**:stä tekemäni kopio - käyttäen tuota palvelintani, joka aukesi porttiin **8000** (attack001.html oli alkuperäinen)
 
-kuitenkin sivusto vinkui virhettä syötteessä: _Kommentti tehtävän teon jälkeen: syötteen charset encoding on aika irrelevanttia tässä tapauksessa. Huomiota olisi tullut kiinnittää kuvassa näkyvään alempaan virheilmoitukseen._ (seasurf003).
+kuitenkin sivusto ilmoitti virhettä syötteessä: _Kommentti tehtävän teon jälkeen: syötteen charset encoding on aika irrelevanttia tässä tapauksessa. Huomiota olisi tullut kiinnittää kuvassa näkyvään alempaan virheilmoitukseen._
 
 ![seasurf003](./kuvat/seasurf003.png)
 
-LISÄSIN attack001.html:ään formiin **"accept-charset='unknown'"**, sekä otin **action:stä** pois **localhostin** ja **portin**. Sain erilaisen virheilmoituksen. Sanoo, ettei POST toimi. Taidampa kokeilla **GET**iä.
+Lisäsin **attack001.html**:n formiin **"accept-charset='unknown'"**, sekä otin **action:stä** pois **localhostin** ja **portin**. Sain erilaisen virheilmoituksen. Sanoo, ettei **POST** toimi. Taidampa kokeilla **GET**iä.
 
 ![seasurf004](./kuvat/seasurf004.png)
 
@@ -319,3 +314,6 @@ Laitoin vastauksessa tulleen flagin alempaan lomakkeeseen ja sain onnistuneesti 
   * 1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
   * 2: W3schools Javan opetteluun: [W3](https://www.w3schools.com/tags/att_form_target.asp)
   * 3: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
+  * 4: Mozilla Firefox, JS käytön dokumentaatiota [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
+
+Elmo Rohula 2020
