@@ -316,6 +316,6 @@ Laitoin vastauksessa tulleen flagin alempaan lomakkeeseen ja sain onnistuneesti 
 
 ## Lähteet
 
-1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
-2: W3schools Javan opetteluun: [W3](https://www.w3schools.com/tags/att_form_target.asp)
-3: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
+  * 1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+  * 2: W3schools Javan opetteluun: [W3](https://www.w3schools.com/tags/att_form_target.asp)
+  * 3: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
