@@ -78,7 +78,7 @@ Organisaation tuotantopalvelimelle on jäänyt vanhoja ohjelmia pyörimään, ei
 
 **Esimerkki:**
 
-Katso harjoituksesta kohta **Get Basic CSRF**
+Katso tästä harjoituksesta kohta **Get Basic CSRF**
 
 ### A8 Insecure Deserialization
 
@@ -174,7 +174,7 @@ Heti hälytti, sillä selain tulostaa käyttäjälle syötteen, jossa on kentäs
 
 Seuraavaksi olisi aika etsiä sopivaa hyökkäyspintaa.
 
-Katsoin Devtoolsien Network välilehdestä, jos lähettämäni pyyntö olisi antanut jotain jännää. Ei ainakaan mikään osunut silmään. Arvelen, että tulisi taas muokata itse HTML:ää, jotta saisin jonkin Javascript pätkän ajettua. (Try again. We do want to see this specific JavaScript (in case you are trying to do something more fancy).
+Katsoin **Dev-toolsien** **Network**-välilehdestä, jos lähettämäni pyyntö olisi antanut jotain jännää. Ei ainakaan mikään osunut silmään. Arvelen, että tulisi taas muokata itse **HTML**:ää, jotta saisin jonkin **JavaScript**-pätkän ajettua. _(Try again. We do want to see this specific JavaScript (in case you are trying to do something more fancy)_.
 
 Ajoin seuraavaksi pari komentoa dev-toolsien konsolissa, ihan bruteforce mielessä, ilman kummempaa taka-ajatusta.
 
@@ -183,7 +183,7 @@ Ajoin seuraavaksi pari komentoa dev-toolsien konsolissa, ihan bruteforce mieless
 
 Ajattelin tämän antavan jotain vänkää ulos, mutta eipä tullut.
 
-Katsoin pari vinkkiä sivun yläkulmasta. Vinkit antoivat jo pari sellaista mitä olin oivaltanut itse (mikä tieto "echotaan" takaisin käyttäjälle), mutta sitten tajusin, että minun pitäisi syöttää haluamani JS johonkin tekstikenttään sen ajamiseksi. Katsoin takaperin ohjeita ja vinkkejä harjoituksen muista kohdista ja mietin, voisinko laitaa **`<script>`**-tägien sisään jotain, jolla saisin "alertoitua" itselleni tuon luottokortti tiedon.
+Katsoin pari vinkkiä sivun yläkulmasta. Vinkit antoivat jo pari sellaista mitä olin oivaltanut itse (mikä tieto "echotaan" takaisin käyttäjälle), mutta sitten tajusin, että minun pitäisi syöttää haluamani **JavaScript** johonkin tekstikenttään sen ajamiseksi. Katsoin takaperin ohjeita ja vinkkejä harjoituksen muista kohdista ja mietin, voisinko laitaa **`<script>`**-tägien sisään jotain, jolla saisin "alertoitua" itselleni tuon luottokortti tiedon.
 
     4128 3214 0002 1999 <script>alert(document.field1)</script>
 
