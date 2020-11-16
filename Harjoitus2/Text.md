@@ -269,7 +269,7 @@ Loin nopeasti webbisivun **attack.html** johon sijoitin:
 
 Sivun tarkoituksena on lähettää sama pyyntö, kuin mitä kohde sivu lähettää "**Submit Query**"-painikkeesta.
 
-Pistin seuraavaksi helpon serverin pystyyn, jos sillä vaikka tapahtuisi[<sup>1</sup>](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/).
+Pistin seuraavaksi helpon serverin pystyyn [Teron ohjeilla](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/), jos sillä vaikka tapahtuisi.
 
     $ python3 -m http.server
 
@@ -311,9 +311,9 @@ Laitoin vastauksessa tulleen flagin alempaan lomakkeeseen ja sain onnistuneesti 
 
 ## Lähteet
 
-  * 1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+  * 1: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
   * 2: W3schools Javan opetteluun: [W3](https://www.w3schools.com/tags/att_form_target.asp)
-  * 3: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
+  * 3: Tehtävänanto H2, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
   * 4: Mozilla Firefox, JS käytön dokumentaatiota [Mozilla](https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName)
 
 Elmo Rohula 2020
