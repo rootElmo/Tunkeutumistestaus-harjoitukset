@@ -115,6 +115,8 @@ https://portswigger.net/web-security/xxe
 
 Tässä osassa päästään tekemään asioita konkreettisesti WebGoatin avulla.
 
+Harjoituksissa käytin 64-bittistä Linux Kalia, jonka olin pystyttänyt aikaisemmin.
+
 ## A2 Broken Authentication
 
 ### Secure Passwords
@@ -237,15 +239,17 @@ Kokeilin vielä seuraaviakin syötteitä, mutta saamatta sen kummempia tuloksia.
 
 ### Basic Get CSRF:
 
-Avasin myös webwolfin taustalle
+Avasin myös **WebWolf**in taustalle
 
-    $java -jar webwolf-se-ja-se
-    localhost:9090/webwolf
-    incoming requests
+    $ java -jar webwolf-se-ja-se
+
+**WebWolf** aukeaa osoitteeseen **localhost:9090/WebWolf**. Toimii erillisenä työkaluna **WebGoatin** kanssa. Tarkoituksena olisi ajaa **WebGoatin** liikennettä niin, että se päätyisi **WebWolfiin**.
 
 *Kommentti tehtävän teon jälkeen: eihän tuota webwolfia itseasiassa tarvinnutkaan tehtävän suoritukseen*
 
-painettuani get query, avasi webgoat uuden välilehden jossa ilmoitettiin, etten ollut onnistunut, sillä pyyntö tuli samalta hostilta (KUVA seasurf001). Minun pitäisi jostain saada siis "painettua" query selaimen ulkopuolelta tai toisen sivun kautta, jotta onnistuisin.
+painettuani **Submit Query**-painiketta, avasi webgoat uuden välilehden jossa ilmoitettiin, etten ollut onnistunut, sillä pyyntö tuli samalta hostilta. Minun pitäisi jostain saada siis "painettua" query selaimen ulkopuolelta tai toisen sivun kautta, jotta onnistuisin.
+
+![seasurf001](./kuvat/seasurf001.png)
 
 Löysin Inspectorista formista kohdan "target". Tämä vaikuttaisi suuntaavaan queryn tiettyyn paikkaan. Lueskelin lisää [täältä](https://www.w3schools.com/tags/att_form_target.asp)
 
@@ -313,3 +317,5 @@ Laitoin vastauksessa tulleen flagin alempaan lomakkeeseen ja sain onnistuneesti 
 ## Lähteet
 
 1: Tehtävänanto, vinkki helpon python-palvelimen pystytykseen: [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+2: W3schools Javan opetteluun: [W3](https://www.w3schools.com/tags/att_form_target.asp)
+3: PortSwigger, tietoa XXE-hyökkäyksistä: [PortSwigger](https://portswigger.net/web-security/xxe)
