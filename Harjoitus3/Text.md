@@ -89,7 +89,13 @@ Avasin seuraavaksi **wiresharkin** taustalle seuraamaan liikennettä. Katsoin to
 
 ![nmap004](./kuvat/nmap004.png)
 
-Pingi-paketit näkyvät, joten oletan homman toimivan.
+Pingi-paketit näkyvät, joten oletan homman toimivan. Tämän päättelin **wiresharkissa** siitä, että kohteelta **10.10.14.133** lähtee **"Echo (ping) request"** paketti käyttäen **ICMP**-protokollaa osoitteeseen **10.10.10.198**. Pyyntöihin tulee myös kohdekoneelta vastaus **"Echo (ping) reply"**. Komennolla
+
+    $ ip a
+
+näen, että tuo **10.10.14.133** on oman koneeni IP-osoite, joka toimii verkkolaitteessa **tun0**.
+
+![nmap006](./kuvat/nmap006.png)
 
 Yhteydet ja ohjelmat näyttävät pelittävän oikein. Seuraavaksi olisikin aika kokeilla itse **nmap**ia kohdekoneen porttiskannaukseen.
 
@@ -114,6 +120,7 @@ Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jääny
 3. [nmap - Gordon Lyon](https://nmap.org/book/nmap-overview-and-demos.html)
 4. [HackTheBox](https://www.hackthebox.eu/)
 5. [StackExchange - What does -Pn option mean in nmap?](https://security.stackexchange.com/questions/31854/what-does-pn-option-mean-in-nmap)
+6. [Wikipedia - ICMP](https://fi.wikipedia.org/wiki/ICMP)
 
 
 Elmo Rohula 2020
