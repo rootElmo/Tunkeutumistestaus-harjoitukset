@@ -95,7 +95,7 @@ Yhteydet ja ohjelmat näyttävät pelittävän oikein. Seuraavaksi olisikin aika
 
     TCP connect scan -sT
 
-![nmapin ohjekirjasen mukaan](https://nmap.org/book/man-port-scanning-techniques.html) **nmap -sT** pyrkii yhdistämään kohdejärjestelmään sen sijaan, että lähettäisin pelkän **SYN**-paketin (**nmap -sS**) tarkastellakseen vastausta. Ajoin komennon
+[nmapin ohjekirjasen mukaan](https://nmap.org/book/man-port-scanning-techniques.html) **nmap -sT** pyrkii yhdistämään kohdejärjestelmään sen sijaan, että lähettäisin pelkän **SYN**-paketin (**nmap -sS**) tarkastellakseen vastausta. Ajoin komennon
 
     $ nmap --top-ports 50 -sT 10.10.10.198
 
