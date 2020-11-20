@@ -104,7 +104,7 @@ Kokeilin yhdistämisen jälkeen pingausta uudella komentokehotteella ja tällä 
 
 Avasin seuraavaksi **wiresharkin** taustalle seuraamaan liikennettä. Katsoin toimiiko **wireshark** pingaamalla uudestaan kohdekonetta.
 
-_**Kommentti**: Olin vahingossa tarkastellut KAIKKEA verkkoliikennettä ja wireshark paljasti muutamia IP-osoitteita, jotka nyt eivät sinänsä kriittisiä, mutta en viitsisi laittaa niitä julkisesti internettiin. Pidän alemman kirjoituksen alkuperäisessä kirjoitusasussaan olettaen, että alla olisi kuva kyseisestä verkkoliikenteestä_
+_**Kommentti**: Olin vahingossa tarkastellut KAIKKEA verkkoliikennettä ja wireshark paljasti muutamia IP-osoitteita, jotka nyt eivät sinänsä kriittisiä, mutta en viitsisi laittaa niitä julkisesti internettiin. Pidän alemman kirjoituksen alkuperäisessä kirjoitusasussaan olettaen, että alla olisi kuva kyseisestä verkkoliikenteestä. Alempana on kuitenkin nähtävissä kuva, jossa näkyvät kohteelle menevvät pingit._
 
 _tässä oli aiemmin kuva wiresharkin liikenteesä_
 
@@ -132,7 +132,7 @@ Tein siis **TCP connect** skannauksen 50:een suosituimpaan porttiin parametrill�
 ![nmap005](./kuvat/nmap005.png)
 
 Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jäänyttä liikennettä. Käynnistin **wiresharkin**
- uudestaan, koska virtuaalikoneeni oli jähmettynyt. Tällä kertaa päätin lukea **wiresharkilla** pelkästään verkkolaitteen **tun0** liikennettä, sillä sen kautta liikenne kulkisi **HackTheBoxin** ja oman koneeni välillä. Ajoin uudelleen komennon
+ uudestaan, koska virtuaalikoneeni oli jähmettynyt. Tällä kertaa päätin lukea **wiresharkilla** pelkästään verkkolaitteen **tun0** liikennettä, sillä sen kautta liikenne kulkisi **HackTheBoxin** ja oman koneeni välillä, eikä liikenteessä näkyisi myös kaikkea muuta koneella liikkuvaa. Ajoin uudelleen komennon
 
     $ nmap --top-ports 50 -sT 10.10.10.198
 
@@ -144,7 +144,21 @@ Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä ke
 
     $ nmap -p 80 -Pn -sT 10.10.10.198
 
+![nmap008](./kuvat/nmap008.png)
 
+Ajoin komennon kaksi kertaa, ja molemmilla kerroilla koneeni yritti kaksi kertaa lähettää **SYN**-pakettia porttiin 80 IP-osoitteeseen **10.10.10.198**. **-Pn**-parametrilla ajettuna **nmap** tällä kertaa kertoo meille, että portti 80 on **filtered**-tilassa, eli **nmap** ei osaa sanoa, onko portti auki, sillä sen lähettämä kutsu ei koskaan päässyt perille [(nmap - Port Scanning Basics)](https://nmap.org/book/man-port-scanning-basics.html).
+
+Seuraavaksi yritin kokeilla **TCP SYN** skannausta ajamalla komennon
+
+    $ nmap -p 80 -sS 10.10.10.198
+
+mutta sain vastaukseksi, että yritin ajaa skannauksen, joka vaatii root-oikeuksia. Ajoin edellisen uudestaan, mutta sudon kera.
+
+    $ sudo nmap -p 80 -sS 10.10.10.198
+
+![nmap009](./kuvat/nmap009.png)
+
+Seuraavaksi katsoittaisiin mitä jäi **wiresharkin** haaviin.
 
 ## Lähteet
 
@@ -155,6 +169,7 @@ Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä ke
 5. [StackExchange - What does -Pn option mean in nmap?](https://security.stackexchange.com/questions/31854/what-does-pn-option-mean-in-nmap)
 6. [Wikipedia - ICMP](https://fi.wikipedia.org/wiki/ICMP)
 7. [Wikipedia - TCP](https://fi.wikipedia.org/wiki/TCP)
+8. [nmap - Port Scanning Basics]()
 
 
 Elmo Rohula 2020
