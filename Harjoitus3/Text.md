@@ -63,7 +63,7 @@ Luvun viimeisessä kohdassa käsiteltiin oikeaa tapausta, jonka seurauksena luvu
 **Lee**n ongelma oli, että hänen yrityksensä ylläpiti mittavaa tietokoneiden verkostoa ja sen skannaamiseen kuluva aika oli yli 30 tuntia. Tästä johtuen **Lee** kirjoitti skriptin, joka ajaisi useamman **nmap**-prosessin rinnakkain.
 
 
-## nmapin käyttö (kohta a)
+## nmapin käyttö (kohta a ja b)
 
 _Miten nmap toimii? Tee nmapilla seuraavat testit, sieppaa liikenne snifferillä (wireshark) ja analysoi tulokset. Tee testit mahdollisimman suppeasti, jotta analysointi on helpompaa._
 
@@ -74,6 +74,15 @@ Kokeiltavat komennot:
   * ping sweep -sn
   * don't ping -Pn
   * version detection -sV
+  * porttien valinta -p1-100, --top-ports 5
+  * ip-osoitteiden valinta, verkkomaskilla 10.10.10.0/24, alku- ja loppuosoitteella 10.10.10.100-130
+  * output files -oA foo
+  * OS fingerprinting, version detection, scripts, traceroute -A
+  * ajonaikaiset toiminnot (man nmap: runtime interaction): verbosity v/V, help ?, packet tracing p/P, status s (ja moni muu nappi)
+  * normaalisti 'sudo nmap'. Miten nmap toiminta eroaa, jos sitä ajaa ilman sudoa? Suorita ja analysoi esimerkki.
+  * vertaile -sV vs -A kestoa (ja lähetetyn datan määrää jos osaat; time, nethogs, wireshark)
+
+
 
 Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden toimintaa. Aion kokeilla komentoja [**HackTheBoxin**](https://www.hackthebox.eu/) maaliverkkoon. **HackTheBoxin** koneet sijaitsevat IP-välillä 10.10.10.1-10.10.10.254.
 
@@ -105,6 +114,9 @@ näen, että tuo **10.10.14.133** on oman koneeni IP-osoite, joka toimii verkkol
 
 ![nmap006](./kuvat/nmap006.png)
 
+
+### TCP connect scan -sT, --top-ports, -p, don't ping -Pn
+
 Yhteydet ja ohjelmat näyttävät pelittävän oikein. Seuraavaksi olisikin aika kokeilla itse **nmap**ia kohdekoneen porttiskannaukseen.
 
     TCP connect scan -sT
@@ -126,7 +138,7 @@ Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jääny
 
 **Wiresharkin** tulosteesta näkyy, että koneeni on yrittänyt kahteen otteeseen lähettää **SYN**-pakettia IP-osoitteeseen 10.10.10.198 portteihin 80 ja 443, mutta kohde ei ole vastannut mitään. Luulen, että jos kohde olisi reagoinut olisin saanut takaisin **SYN/ACK**-paketin jos kohde olisi valmis muodostamaan yhteyden tai **RST**-paketin, jos kohde haluaisi kertoa meille, että ei halua muodostaa yhteyttä. Se, että kohde ei vastaa voi johtua siitä, että palomuurin asetuksissa on estetty kyseisiin portteihin yhteyden muodostaminen.
 
-Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä kertaa **-Pn**:n kera.
+Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä kertaa **-Pn**:n kera. Määritin myös portin parametrilla **-p 80**.
 
     $ nmap -p 80 -Pn -sT 10.10.10.198
 
