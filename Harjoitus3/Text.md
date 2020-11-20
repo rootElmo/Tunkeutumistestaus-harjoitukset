@@ -104,7 +104,9 @@ Kokeilin yhdistämisen jälkeen pingausta uudella komentokehotteella ja tällä 
 
 Avasin seuraavaksi **wiresharkin** taustalle seuraamaan liikennettä. Katsoin toimiiko **wireshark** pingaamalla uudestaan kohdekonetta.
 
-![nmap004](./kuvat/nmap004.png)
+_**Kommentti**: Olin vahingossa tarkastellut KAIKKEA verkkoliikennettä ja wireshark paljasti muutamia IP-osoitteita, jotka nyt eivät sinänsä kriittisiä, mutta en viitsisi laittaa niitä julkisesti internettiin. Pidän alemman kirjoituksen alkuperäisessä kirjoitusasussaan olettaen, että alla olisi kuva kyseisestä verkkoliikenteestä_
+
+_tässä oli aiemmin kuva wiresharkin liikenteesä_
 
 Pingi-paketit näkyvät, joten oletan homman toimivan. Tämän päättelin **wiresharkissa** siitä, että kohteelta **10.10.14.133** lähtee **"Echo (ping) request"** paketti käyttäen **ICMP**-protokollaa osoitteeseen **10.10.10.198**. Pyyntöihin tulee myös kohdekoneelta vastaus **"Echo (ping) reply"**. Komennolla
 
