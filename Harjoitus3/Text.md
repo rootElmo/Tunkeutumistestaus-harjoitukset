@@ -67,7 +67,9 @@ Luvun viimeisessä kohdassa käsiteltiin oikeaa tapausta, jonka seurauksena luvu
 
 _Miten nmap toimii? Tee nmapilla seuraavat testit, sieppaa liikenne snifferillä (wireshark) ja analysoi tulokset. Tee testit mahdollisimman suppeasti, jotta analysointi on helpompaa._
 
+Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden toimintaa.
 
+  TCP connect scan -sT
 
 
 ## Lähteet
