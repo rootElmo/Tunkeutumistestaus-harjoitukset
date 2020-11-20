@@ -77,18 +77,33 @@ Valitsin harjoitusmaaliksi **HackTheBoxin** koneen **Buff**, jonka pyrkisin kork
 
 Pingaus ei onnistunut, koska en ollut avannut yhteyttä **HackTheBoxin** verkkoon **OpenVPN**:n avulla. Ohjelma ilmoittaa onnistumisesta.
 
+    $ sudo openvpn TheElmo.ovpn
+
 ![nmap002](./kuvat/nmap002.png)
 
-Kokeilin yhdistämisen jälkeen pingausta uudelleen ja tällä kertaa homma pelitti.
+Kokeilin yhdistämisen jälkeen pingausta uudella komentokehotteella ja tällä kertaa homma pelitti.
 
 ![nmap003](./kuvat/nmap003.png)
 
+Avasin seuraavaksi **wiresharkin** taustalle seuraamaan liikennettä. Katsoin toimiiko **wireshark** pingaamalla uudestaan kohdekonetta.
 
+![nmap004](./kuvat/nmap004.png)
 
-    $ sudo openvpn TheElmo.ovpn
+Pingi-paketit näkyvät, joten oletan homman toimivan.
+
+Yhteydet ja ohjelmat näyttävät pelittävän oikein. Seuraavaksi olisikin aika kokeilla itse **nmap**ia kohdekoneen porttiskannaukseen.
 
     TCP connect scan -sT
 
+![nmapin ohjekirjasen mukaan](https://nmap.org/book/man-port-scanning-techniques.html) **nmap -sT** pyrkii yhdistämään kohdejärjestelmään sen sijaan, että lähettäisin pelkän **SYN**-paketin (**nmap -sS**) tarkastellakseen vastausta. Ajoin komennon
+
+    $ nmap --top-ports 50 -sT 10.10.10.198
+
+Tein siis **TCP connect** skannauksen 50:een suosituimpaan porttiin parametrillä **--top-ports 50**, IP:seen 10.10.10.198. En saanut mitään vastaukseksi itse skannaukseen, sillä **nmap** ilmoitti kohteen olevan **"down"** ja suositteli ajamaan komennon parametrin **-Pn** kanssa, jolloin skannatessa, jos kone ei anna vastausta, **nmap** jatkaa silti skannausta. [Lueskelin täältä](https://security.stackexchange.com/questions/31854/what-does-pn-option-mean-in-nmap) ja katsoin myös **nmapin** man-sivuilta.
+
+![nmap005](./kuvat/nmap005.png)
+
+Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jäänyttä liikennettä.
 
 
 
@@ -98,6 +113,7 @@ Kokeilin yhdistämisen jälkeen pingausta uudelleen ja tällä kertaa homma peli
 2. [O'Reilly - Santos et al](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00)
 3. [nmap - Gordon Lyon](https://nmap.org/book/nmap-overview-and-demos.html)
 4. [HackTheBox](https://www.hackthebox.eu/)
+5. [StackExchange - What does -Pn option mean in nmap?](https://security.stackexchange.com/questions/31854/what-does-pn-option-mean-in-nmap)
 
 
 Elmo Rohula 2020
