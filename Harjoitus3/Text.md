@@ -67,6 +67,14 @@ Luvun viimeisessä kohdassa käsiteltiin oikeaa tapausta, jonka seurauksena luvu
 
 _Miten nmap toimii? Tee nmapilla seuraavat testit, sieppaa liikenne snifferillä (wireshark) ja analysoi tulokset. Tee testit mahdollisimman suppeasti, jotta analysointi on helpompaa._
 
+Kokeiltavat komennot:
+
+  * TCP connect scan -sT
+  * TCP SYN "used to be stealth" scan, -sS
+  * ping sweep -sn
+  * don't ping -Pn
+  * version detection -sV
+
 Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden toimintaa. Aion kokeilla komentoja [**HackTheBoxin**](https://www.hackthebox.eu/) maaliverkkoon. **HackTheBoxin** koneet sijaitsevat IP-välillä 10.10.10.1-10.10.10.254.
 
 Valitsin harjoitusmaaliksi **HackTheBoxin** koneen **Buff**, jonka pyrkisin korkkaamaan tämän harjoituksen aikana. Kokeilin ensiksi yhteyttä **HackTheBoxin** verkkoon pingaamalla kohdekonetta nimeltä **Buff**.
@@ -109,7 +117,18 @@ Tein siis **TCP connect** skannauksen 50:een suosituimpaan porttiin parametrill�
 
 ![nmap005](./kuvat/nmap005.png)
 
-Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jäänyttä liikennettä.
+Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jäänyttä liikennettä. Käynnistin **wiresharkin**
+ uudestaan, koska virtuaalikoneeni oli jähmettynyt. Tällä kertaa päätin lukea **wiresharkilla** pelkästään verkkolaitteen **tun0** liikennettä, sillä sen kautta liikenne kulkisi **HackTheBoxin** ja oman koneeni välillä. Ajoin uudelleen komennon
+
+    $ nmap --top-ports 50 -sT 10.10.10.198
+
+![nmap007](./kuvat/nmap007.png)
+
+**Wiresharkin** tulosteesta näkyy, että koneeni on yrittänyt kahteen otteeseen lähettää **SYN**-pakettia IP-osoitteeseen 10.10.10.198 portteihin 80 ja 443, mutta kohde ei ole vastannut mitään. Luulen, että jos kohde olisi reagoinut olisin saanut takaisin **SYN/ACK**-paketin jos kohde olisi valmis muodostamaan yhteyden tai **RST**-paketin, jos kohde haluaisi kertoa meille, että ei halua muodostaa yhteyttä. Se, että kohde ei vastaa voi johtua siitä, että palomuurin asetuksissa on estetty kyseisiin portteihin yhteyden muodostaminen.
+
+Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä kertaa **-Pn**:n kera.
+
+    $ nmap -p 80 -Pn -sT 10.10.10.198
 
 
 
@@ -121,6 +140,7 @@ Ennen komennon uudelleenajoa voisin kuitenkin vilkaista **wiresharkiin** jääny
 4. [HackTheBox](https://www.hackthebox.eu/)
 5. [StackExchange - What does -Pn option mean in nmap?](https://security.stackexchange.com/questions/31854/what-does-pn-option-mean-in-nmap)
 6. [Wikipedia - ICMP](https://fi.wikipedia.org/wiki/ICMP)
+7. [Wikipedia - TCP](https://fi.wikipedia.org/wiki/TCP)
 
 
 Elmo Rohula 2020
