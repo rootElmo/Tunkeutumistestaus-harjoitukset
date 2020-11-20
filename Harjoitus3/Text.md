@@ -67,9 +67,29 @@ Luvun viimeisessä kohdassa käsiteltiin oikeaa tapausta, jonka seurauksena luvu
 
 _Miten nmap toimii? Tee nmapilla seuraavat testit, sieppaa liikenne snifferillä (wireshark) ja analysoi tulokset. Tee testit mahdollisimman suppeasti, jotta analysointi on helpompaa._
 
-Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden toimintaa.
+Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden toimintaa. Aion kokeilla komentoja [**HackTheBoxin**](https://www.hackthebox.eu/) maaliverkkoon. **HackTheBoxin** koneet sijaitsevat IP-välillä 10.10.10.1-10.10.10.254.
 
-  TCP connect scan -sT
+Valitsin harjoitusmaaliksi **HackTheBoxin** koneen **Buff**, jonka pyrkisin korkkaamaan tämän harjoituksen aikana. Kokeilin ensiksi yhteyttä **HackTheBoxin** verkkoon pingaamalla kohdekonetta nimeltä **Buff**.
+
+    $ ping 10.10.10.198
+
+![nmap001](./kuvat/nmap001.png)
+
+Pingaus ei onnistunut, koska en ollut avannut yhteyttä **HackTheBoxin** verkkoon **OpenVPN**:n avulla. Ohjelma ilmoittaa onnistumisesta.
+
+![nmap002](./kuvat/nmap002.png)
+
+Kokeilin yhdistämisen jälkeen pingausta uudelleen ja tällä kertaa homma pelitti.
+
+![nmap003](./kuvat/nmap003.png)
+
+
+
+    $ sudo openvpn TheElmo.ovpn
+
+    TCP connect scan -sT
+
+
 
 
 ## Lähteet
@@ -77,6 +97,7 @@ Tässä kohdassa kokeillaan **nmapin** eri toimintoja, sekä analysoidaan niiden
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
 2. [O'Reilly - Santos et al](https://learning.oreilly.com/videos/the-art-of/9780135767849/9780135767849-SPTT_04_00)
 3. [nmap - Gordon Lyon](https://nmap.org/book/nmap-overview-and-demos.html)
+4. [HackTheBox](https://www.hackthebox.eu/)
 
 
 Elmo Rohula 2020
