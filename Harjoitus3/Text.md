@@ -301,8 +301,25 @@ Tämä hälyttää varmasti, mutta vain sillon, jos liikennettä palvelimelle on
 ## Kohta d, UDP-skannaus
 
   * Mitkä ovat tavallisimmat tai kiinnostavimmat palvelut, joita UDP-skannauksella voisi löytää?
+
+[**Tämä sivu**](https://nmap.org/book/scan-methods-udp-scan.html) toimi lähteenä. Kolme tavallisinta **UDP**-palvelua, mitä palvelimilta voi löytyä ovat **DNS** (Domain Name System [- Wikipedia.](https://fi.wikipedia.org/wiki/DNS)), **SNMP** (Simple Network Management Protocol [- Wikipedia.](https://fi.wikipedia.org/wiki/SNMP)), sekä **DHCP** (Dynamic Host Configuration Protocol [- Wikipedia.](https://fi.wikipedia.org/wiki/DHCP))
+
   * Miksi UDP-skannaus on hankalaa ja epäluotettavaa?
+
+[**Tämä sivu**](https://nmap.org/book/scan-methods-udp-scan.html) toimi lähteenä. **UDP**-skannauksen yhtenä vaikeutena on mm. se, että avoimet portit eivät välttämättä vastaa lähetettyihin pyyntöihin. Tällöin **nmapin** on vaikea päätellä onko portissa pyörimässä jokin palvelu, joka ei vain vastaa, vai onko kyseessä suodattavan palomuurin asetukset, jotka estävät pakettien perillä pääsyä.
+
+**UDP**-paketteihin ei myöskään saata tulla vastausta sen takia, että jokain **UDP**-palvelu määrittää pakettirakenteensa eri tavalla. **nmapissa** kuitenkin on keinoja lähettää yksittäisille palveluille tarkoitettuja paketteja.
+
   * Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia?
+
+[**Tämä sivu**](https://geek-university.com/nmap/the-reason-flag/) toimi lähteenä. Koska **UDP**-skannauksessa on välillä vaikea sanoa, onko portti oikeasti auki ja sieltä ei kuulu vastausta, vai on palomuuri pudottamassa ei-toivotut paketit, kannattaa **UDP**-skannaus ajaa **--reason**-flagin kera. Käytettäessä **--reason**-flagia **nmap** ilmoittaa onko portti missä tilassa ja miksi se niin päättelee. Testasin nopeasti ajamalla kohdekoneeseen **10.10.10.214** komennon
+
+    $ sudo nmap --top-ports 25 -sU --reason 10.10.10.214
+
+, eli 25 suosituimpaan porttiin **UDP**-skannaus, sekä selitykset perään. Kuvankaappauksessa näkyy porttien tila, sekä **nmapin** päätelmä, miksi ne ovat siinä tilassa missä ovat.
+
+![nmap023](./kuvat/nmap023.png)
+
   * Vapaaehtoinen bonuskohta: näytä esimerkki onnistuneesta UDP-skannauksesta, sekä jonkin UDP:n erityisominaisuuden takia epäonnistuneesta tai harhaanjohtavan tuloksen antavasta UDP-skannauksesta.
 
 ## Lähteet
@@ -316,5 +333,11 @@ Tämä hälyttää varmasti, mutta vain sillon, jos liikennettä palvelimelle on
 7. [Wikipedia - TCP](https://fi.wikipedia.org/wiki/TCP)
 8. [nmap - Port Scanning Basics]()
 9. [codeasite - apachen lokit](https://blog.codeasite.com/how-do-i-find-apache-http-server-log-files/)
+10. [Wikipedia - DNS](https://fi.wikipedia.org/wiki/DNS)
+11. [Wikipedia - SNMP](https://fi.wikipedia.org/wiki/SNMP)
+12. [Wikipedia - DHCP](https://fi.wikipedia.org/wiki/DHCP)
+13. [geekuniversity - nmap reason flag](https://geek-university.com/nmap/the-reason-flag/)
+
+
 
 Elmo Rohula 2020
