@@ -295,7 +295,15 @@ ja tulosteesta näkyi, että jotain pyyntöjä on tullut joissa näkyy selkeäst
 
 ![nmap022](./kuvat/nmap022.png)
 
+Tämä hälyttää varmasti, mutta vain sillon, jos liikennettä palvelimelle on vähän ja joku jaksaa tarkistaa lokeja, joko manuaalisesti tai automaattisesti.
 
+
+## Kohta d, UDP-skannaus
+
+  * Mitkä ovat tavallisimmat tai kiinnostavimmat palvelut, joita UDP-skannauksella voisi löytää?
+  * Miksi UDP-skannaus on hankalaa ja epäluotettavaa?
+  * Miksi UDP-skannauksen kanssa kannattaa käyttää --reason flagia?
+  * Vapaaehtoinen bonuskohta: näytä esimerkki onnistuneesta UDP-skannauksesta, sekä jonkin UDP:n erityisominaisuuden takia epäonnistuneesta tai harhaanjohtavan tuloksen antavasta UDP-skannauksesta.
 
 ## Lähteet
 
