@@ -177,7 +177,7 @@ mutta sain vastaukseksi, että yritin ajaa skannauksen, joka vaatii root-oikeuks
 Seuraavaksi katsoittaisiin mitä jäi **wiresharkin** haaviin.
 
 
-_Tässä kohti otin pidemmän tauon tehtävän teossa ja sillä välillä kone **Buff** on siirtynyt vanhentuneisiin koneisiin **HackTheBoxissa**, joten jouduin valitsemaan uuden koneen. Uuden koneen nimi on **Time**. Koneen IP-osoite on 10.10.10.214_
+_KOMMENTTI: Tässä kohti otin pidemmän tauon tehtävän teossa ja sillä välillä kone **Buff** on siirtynyt vanhentuneisiin koneisiin **HackTheBoxissa**, joten jouduin valitsemaan uuden koneen. Uuden koneen nimi on **Time**. Koneen IP-osoite on 10.10.10.214. Otin yhteyden uudestaan **HackTheBoxin** verkkoon samalla tapaa, kuin aikaisemminkin **openvpn**:n avulla ja kokeilin pingauksilla kohdekoneeseen, olinko vai enkö ollut verkossa._
 
 ![nmap015](./kuvat/nmap015.png)
 
@@ -255,6 +255,46 @@ Kuten [nmapin sivuilla lukee](https://nmap.org/book/man-host-discovery.html), aj
 
 _kuvankaappauksessa näkyy **nmapin** tuloste, sekä **wiresharkin** kaappaamaa liikennettä. Nähtävissä on **SYN**-paketit kohteisiin, portteihin **80**, sekä **443** ja muutamia kohteiden vastauksia (**SYN/ACK**)_
 
+Ajeattaessa **sudon** kanssa **nmap** lähettää myös **ACK**-paketteja.
+
+![nmap019](./kuvat/nmap019.png)
+
+
+
+## kohta c, Ninjojen tapaan. Aja nmap-versioskannaus -sV omaan paikalliseen weppipalvelimeen
+
+Tehtävää varten aloitin **wiresharkilla** kuuntelun **loopback**-verkkolaitteessa, sillä tulisin tarkkailemaan paikallisesti ajettua palvelua, enkä tarvinnut tietoa muiden verkkolaitteiden liikenteesä.
+
+Lopetin mahdollisesti taustalla pyörivät **nginx** ja **apache2** palvelut ja käynnistin **apache2**:n uudestaan. Avasin selaimella osoitteen **127.0.0.1** (localhost olisi myös käynyt). **Apache** avautuu vakiona porttiin **80**, johon myös selaimet ohjaavat vakiona, jos porttia ei ole erikseen määritetty.
+
+    $ sudo service apache2 stop
+    $ sudo service nginx stop
+    $ sudo service apache2 start
+
+**wiresharkissa** näkyy myös, että koneemme on avannut onnistuneesti yhteyden verkkopalveluun (**SYN/ACK**-kättely onnistuneesti, sekä tämän jälkeen **GET**-pyyntö, jolla haetaan sivun sisältö).
+
+![nmap020](./kuvat/nmap020.png)
+
+Seuraavaksi ajoin porttiskannauksen porttiin **80** omalle koneelleni versiontarkistusparametrillä **-sV**.
+
+    $ nmap -p 80 -sV 127.0.0.1
+
+Tulokseksi sain, että portti **80** on auki ja siellä pyörii **Apachen** versio 2.4.46. **wiresharkiin** jäänyt liikenne vaikuttaa hyvin samanlaiselta, kuin mitä aikaisemmissakin **-sV**-skannauksissa.
+
+![nmap021](./kuvat/nmap021.png)
+
+**wiresharkiin** jääneestä liikenteestä voi huomioida (kun suodattaa vain **HTTP**-pyynnöt), että **nmap** tekee jotain urkintaa, lähettämällä **GET**-pyyntöjä, joihin palvelu mm. vastaa kertomalla versionumeronsa.
+
+Katsoin myös, olisiko **Apachen** access.logiin jäänyt jotain skannauksestani. Veikkaisin, että olisi, sillä lähettihän skannaus **GET**-pyyntöjä palvelimelle. Käytin komentoa
+
+    $ sudo cat /var/log/apache/access.log | grep HTTP
+
+_access.login sijainnin minulle paljasti [tämä sivusto.](https://blog.codeasite.com/how-do-i-find-apache-http-server-log-files/)_
+
+ja tulosteesta näkyi, että jotain pyyntöjä on tullut joissa näkyy selkeästi **nmap** mainittuna. **nmap** yrittää vissiin joillakin **POST**-pyynnöillä urkkia jotain **Scripting Enginensä** avulla.
+
+![nmap022](./kuvat/nmap022.png)
+
 
 
 ## Lähteet
@@ -267,6 +307,6 @@ _kuvankaappauksessa näkyy **nmapin** tuloste, sekä **wiresharkin** kaappaamaa 
 6. [Wikipedia - ICMP](https://fi.wikipedia.org/wiki/ICMP)
 7. [Wikipedia - TCP](https://fi.wikipedia.org/wiki/TCP)
 8. [nmap - Port Scanning Basics]()
-
+9. [codeasite - apachen lokit](https://blog.codeasite.com/how-do-i-find-apache-http-server-log-files/)
 
 Elmo Rohula 2020
