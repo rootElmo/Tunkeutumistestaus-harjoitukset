@@ -179,6 +179,8 @@ Seuraavaksi katsoittaisiin mitä jäi **wiresharkin** haaviin.
 
 _Tässä kohti otin pidemmän tauon tehtävän teossa ja sillä välillä kone **Buff** on siirtynyt vanhentuneisiin koneisiin **HackTheBoxissa**, joten jouduin valitsemaan uuden koneen. Uuden koneen nimi on **Time**. Koneen IP-osoite on 10.10.10.214_
 
+![nmap015](./kuvat/nmap015.png)
+
 
 Ajoin komennon
 
@@ -206,7 +208,7 @@ jolloin ohjelmanajon tulokset kirjoittuisivat tiedostoihin. **-oA**-parametri m�
 
 ![nmap012](./kuvat/nmap012.png)
 
-### OS fingerprinting, version detection, scripts, traceroute -A
+### OS fingerprinting, version detection, scripts, traceroute -A, -sV vs -A
 
 Seuraavaksi päätin kokeilla ajaa **nmapia** **-A**-parametrillä.
 
@@ -225,7 +227,23 @@ ja vertasin skannauksen kestoa, sekä datan määrää edelliseen **-A**:lla aje
 ![nmap014](./kuvat/nmap014.png)
 
 
+### ping sweep -sn, ip-osoitteiden valinta
 
+Seuraavaksi päätin tiedustella koko **HackTheBoxin** verkkoa. Loin aluksi uuden kansion **htb-bix** mahdollisia tulosteiden tallennuksia ja muita erinäköisiä tiedostoja varten. Veikkasin, että kun skannataan kokonainen verkko, niin tulostetta saattaa syntyä pitkät pätkät. Ajoin komennon
+
+    $ sudo nmap -p 80 -sS 10.10.10.0/24
+
+jolloin kyseessä olisi **TCP SYN**-skannaus porttiin **80**. Päätin valita **IP-osoitteet** antamalla verkon verkkomaskin, samalla tapaa kuin miten **HackTheBoxin** sivuilla on osoitteet annettu. [**Ipcalcilla**](http://jodies.de/ipcalc) tarkasteltuna tämä tarkoittaisi, että kaikki koneet **IP-välillä 10.10.10.1-10.10.10.254** skannattaisiin.
+
+![nmap016](./kuvat/nmap016.png)
+
+Ajoin komennon uudestaan, mutta päätin ottaa **grepable outputin** parametrillä **-oG**
+
+    $ sudo nmap -p 80 -sS -oG htb-all 10.10.10.0/24
+
+Koska tavaraa oli niin paljon, on hyvä ottaa tieto talteen jonnekkin, ettei koko verkkkoa joutuisi aina skannaamaan uudestaan portin **80** varalta.
+
+![nmap017](./kuvat/nmap017.png)
 
 ## Lähteet
 
