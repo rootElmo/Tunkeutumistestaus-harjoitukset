@@ -195,6 +195,14 @@ ja sain vastaukseksi, että portissa **80** tosiaan pyörii **Apache 2.4.41** we
 
 ![nmap011](./kuvat/nmap011.png)
 
+Halusin ottaa talteen juuri suorittamani porttiskannauksen tulokset, joten ajoin komennon
+
+    $ sudo nmap -p 80 -sS -sV -oA test 10.10.10.214
+
+jolloin ohjelmanajon tulokset kirjoittuisivat tiedostoihin. **-oA**-parametri määrittää, että **nmap** tulostaa tuloksensa kaikilla saatavilla olevilla formaateilla. Olin luonut kansion **time-box**, jonne tulostin skannauksen tulokset.
+
+![nmap012](./kuvat/nmap012.png)
+
 ## Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
