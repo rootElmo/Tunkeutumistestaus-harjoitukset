@@ -161,6 +161,9 @@ Seuraavaksi ajoin **nmap**in pelkästään kohteen porttiin 80, mutta tällä ke
 
 Ajoin komennon kaksi kertaa, ja molemmilla kerroilla koneeni yritti kaksi kertaa lähettää **SYN**-pakettia porttiin 80 IP-osoitteeseen **10.10.10.198**. **-Pn**-parametrilla ajettuna **nmap** tällä kertaa kertoo meille, että portti 80 on **filtered**-tilassa, eli **nmap** ei osaa sanoa, onko portti auki, sillä sen lähettämä kutsu ei koskaan päässyt perille [(nmap - Port Scanning Basics)](https://nmap.org/book/man-port-scanning-basics.html).
 
+
+### TCP SYN scan, -sV, -oA
+
 Seuraavaksi yritin kokeilla **TCP SYN** skannausta ajamalla komennon
 
     $ nmap -p 80 -sS 10.10.10.198
@@ -202,6 +205,24 @@ Halusin ottaa talteen juuri suorittamani porttiskannauksen tulokset, joten ajoin
 jolloin ohjelmanajon tulokset kirjoittuisivat tiedostoihin. **-oA**-parametri määrittää, että **nmap** tulostaa tuloksensa kaikilla saatavilla olevilla formaateilla. Olin luonut kansion **time-box**, jonne tulostin skannauksen tulokset.
 
 ![nmap012](./kuvat/nmap012.png)
+
+### OS fingerprinting, version detection, scripts, traceroute -A
+
+Seuraavaksi päätin kokeilla ajaa **nmapia** **-A**-parametrillä.
+
+    $ sudo nmap -p 80 -sS -A 10.10.10.214
+
+Otin parametrin **-sV** pois, sillä **-A** sisältää myös versiontunnistuksen. Kyseisellä parametrillä ajettaessa **nmap** ajaa useampaa toimintoa kohdekonetta vastaan. Skannauksen suorituttua **nmapin** tulosteesta näkyy, että kohdekoneesta ollaan saatu ulos arvaus kohdekoneen käyttöjärjestelmästä, tieto avoimesta portista **80**, sekä nimi ja versio siellä palvelusta (Apache). **nmap** on myös **traceroutannut** liikenteen ja näemme, että kohdekone on kahden hypyn päässä koneestamme. Näemme myös **wiresharkin** tulosteesta, että koko skannaus on suoritettu n. 14 sekunnissa, paketteja on tullut ja mennyt n. 600 kappaletta.
+
+![nmap013](./kuvat/nmap013.png)
+
+Ajoin komennon
+
+    $ sudo nmap -p 80 -sS -sV 10.10.10.214
+
+ja vertasin skannauksen kestoa, sekä datan määrää edelliseen **-A**:lla ajettuun skannaukseen. Skannaus kestää n. puolet (7,87 sekuntia) edellisestä skannauksesta ja pakettiliikenne on huomattavasti pienempi. **-sV** tosin tulostaa vain skannatun palvelun ohjelmaversion, eikä esimerkiksi suorita **traceroutea**.
+
+![nmap014](./kuvat/nmap014.png)
 
 ## Lähteet
 
