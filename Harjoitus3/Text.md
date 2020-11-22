@@ -224,6 +224,9 @@ ja vertasin skannauksen kestoa, sekä datan määrää edelliseen **-A**:lla aje
 
 ![nmap014](./kuvat/nmap014.png)
 
+
+
+
 ## Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
