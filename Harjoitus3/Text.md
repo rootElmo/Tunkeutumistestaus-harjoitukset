@@ -320,6 +320,8 @@ Tämä hälyttää varmasti, mutta vain sillon, jos liikennettä palvelimelle on
 
 ![nmap023](./kuvat/nmap023.png)
 
+Portit ovat merkitty **closed**, sillä **nmap** ei saanut paketteja perille.
+
   * Vapaaehtoinen bonuskohta: näytä esimerkki onnistuneesta UDP-skannauksesta, sekä jonkin UDP:n erityisominaisuuden takia epäonnistuneesta tai harhaanjohtavan tuloksen antavasta UDP-skannauksesta.
 
 ## Lähteet
