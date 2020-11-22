@@ -245,6 +245,18 @@ Koska tavaraa oli niin paljon, on hyvä ottaa tieto talteen jonnekkin, ettei kok
 
 ![nmap017](./kuvat/nmap017.png)
 
+Seuraavaksi kokeilin **ping sweepiä** koko **HTB:n** verkkoon.
+
+    $ nmap -sn 10.10.10.0/24
+
+Kuten [nmapin sivuilla lukee](https://nmap.org/book/man-host-discovery.html), ajettuna ilman **sudoa**, kohdeverkkoon lähetetään vain **SYN**-paketteja portteihin **80** ja **443**. **nmap** antaa tiedoksi, mitkä kohdeverkossa olevat koneet ovat päällä.
+
+![nmap018](./kuvat/nmap018.png)
+
+_kuvankaappauksessa näkyy **nmapin** tuloste, sekä **wiresharkin** kaappaamaa liikennettä. Nähtävissä on **SYN**-paketit kohteisiin, portteihin **80**, sekä **443** ja muutamia kohteiden vastauksia (**SYN/ACK**)_
+
+
+
 ## Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
