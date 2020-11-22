@@ -173,6 +173,28 @@ mutta sain vastaukseksi, että yritin ajaa skannauksen, joka vaatii root-oikeuks
 
 Seuraavaksi katsoittaisiin mitä jäi **wiresharkin** haaviin.
 
+
+_Tässä kohti otin pidemmän tauon tehtävän teossa ja sillä välillä kone **Buff** on siirtynyt vanhentuneisiin koneisiin **HackTheBoxissa**, joten jouduin valitsemaan uuden koneen. Uuden koneen nimi on **Time**. Koneen IP-osoite on 10.10.10.214_
+
+
+Ajoin komennon
+
+    $ sudo nmap -p 80 -sS 10.10.10.214
+
+katsoakseni, mitä **wiresharkin** haaviin jäisi uuden koneen porttiskannauksesta. **Nmap** ilmoittaa portin **80** olevan auki. Tämä näkyy konkreettisesti myös **wiresharkiin** jääneestä liikenteestä, sillä kohdekone vastaa lähettämäämme **SYN**-kättelyyn **SYN/ACK**:lla, eli kohdekone on valmis muodostamaan yhteyden. **TCP SYN**-skannauksessa emme kuitenkaan muodosta kokonaista yhteyttä, joten meidän koneemme ei vastaa kohdekoneen **SYN/ACK**:iin.
+
+![nmap010](./kuvat/nmap010.png)
+
+Koneelta on myös lähtenyt kohteeseen pari **PING**-pakettia skannauksen yhteydessä, sekä omituisesti **SYN**-paketti porttiin **443** ja **ACK**-paketti porttiin **80** skannauksen alussa. En ole täysin varma miksi ohjelma on tehnyt näin.
+
+Seuraavaksi kokeilin tarkastaa portissa **80** pyörivän ohjelman nimen ja version. Oletan, että jonkinnäköinen webbi-palvelin siellä olisi päällä. Ajoin komennon
+
+    $ sudo nmap -p 80 -sS -sV 10.10.10.214
+
+ja sain vastaukseksi, että portissa **80** tosiaan pyörii **Apache 2.4.41** webbipalvelin, tarkemmin ottaen vielä **Ubuntulla** pyörivä versio. Katsoessani **wiresharkin** lokia liikennettä näkyy hurjasti enemmän, kun **nmap** on ajettu **-sV**:n kera. Huomasin myös, että koneeni ottaa jossain vaiheessa kokonaisen yhteyden kohdekoneen porttiin **80**, sillä lokista paljastuu kokonainen **SYN, SYN/ACK, ACK**-kättely koneiden välillä.
+
+![nmap011](./kuvat/nmap011.png)
+
 ## Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
