@@ -324,6 +324,46 @@ Portit ovat merkitty **closed**, sillä **nmap** ei saanut paketteja perille.
 
   * Vapaaehtoinen bonuskohta: näytä esimerkki onnistuneesta UDP-skannauksesta, sekä jonkin UDP:n erityisominaisuuden takia epäonnistuneesta tai harhaanjohtavan tuloksen antavasta UDP-skannauksesta.
 
+
+
+## Kohta e, avaa yhteys HackTheBoxin verkkoon ja osoita, että yhteys toimii
+
+Olin jo aikaisemmin tehnyt tämän tehtävän osittain, mutta laitetaan vielä kerta kiellon päälle. Aloitin katsomalla **HackTheBoxin** sivustolta missä osotteissa kyseisen palvelun verkko sijaitsee. Sivusto ilmoittaa **10.10.10.0/24 (10.10.10.1-10.10.10.254).** Käväisin katsomassa vielä, missä osoitteessa aikaisemmin skannaamani kone **Time** sijaitsee ja yritin pingata sitä.
+
+    $ ping 10.10.10.214
+
+![htb001](./kuvat/htb001.png)
+
+Ei vastausta. Olin jo aikaisemmin hakenut **HackTheBoxin** "Connection Packin", jolla pystyisin yhdistämään sivuston verkkoon. Avasin yhteyden komennolla
+
+    $ sudo openvpn TheElmo.ovpn
+
+ja komentokehote ilmoittaa onnistumisesta. Avasin **wiresharkin**, jolla kuuntelisin verkkolaitetta **tun0**, joka avautui, kun **openvpn** otti yhteyden **HackTheBoxin** verkkoon.
+
+![htb002](./kuvat/htb002.png)
+
+Pingasin seuraavaksi **Time**-konetta uudestaan ja paketit menivät perille! Myös **wireshark** oli samaa mieltä.
+
+![htb003](./kuvat/htb003.png)
+
+Oletettavasti yhteys toimisi nyt. Unohdin käyttää aikaisemmassa kohdassa **wiresharkia**, joten katkaisin **openvpn** yhteyden ja yritin pingata **Time**-konetta uudelleen. Koska **openvpn**-yhteyden katkaisun myötä katosi myös verkkolaite **tun0**, kuuntelin **wiresharkilla** kaikkia verkkolaitteita. **wiresharkista** näkyy, että pingejä lähtee, mutta mitään vastausta ei tule.
+
+![htb004](./kuvat/htb004.png)
+
+Laitoin uudelleen yhteyden auki **HackTheBoxin** verkkoon samalla tapaa kuin aikaisemmin. Seuraavaksi halusin löytää koko **HackTheBoxin** verkosta jonkin toimivan webbipalvelun, jota voisin selata selaimella. Tiesin, että suosituimmat webbipalvelimet pyörisivät vakiona portissa **80**, joten tein porttiskannauksen sen varalta. Päätin ajaa nopeahkon **TCP SYN**-skannauksen, en tarvinnut tällä kertaa sen kummempia tietoja.
+
+    $ sudo nmap -p 80 -sS 10.10.10.0/24
+
+![htb005](./kuvat/htb005.png)
+
+Sain pitkän listan aukinaisia porttaja eri koneista. Päätin valita täysin sattumanvaraisesti valita koneen **10.10.10.209** ja käydä katsomassa selaimella, näkyisikö mitään. Jokin **Doctor**-sivusto aukesi syöttämällä vain koneen IP:n selaimeen.
+
+![htb006](./kuvat/htb006.png)
+
+
+
+
+
 ## Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/#h3)
