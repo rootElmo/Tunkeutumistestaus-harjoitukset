@@ -328,6 +328,13 @@ Portit ovat merkitty **closed**, sillä **nmap** ei saanut paketteja perille.
 
 ## Kohta e, avaa yhteys HackTheBoxin verkkoon ja osoita, että yhteys toimii
 
+
+
+_Kommentti: Tiesin jo aikaisemmin oppimastani, että **HackTheBoxin** verkko on yksityinen verkko, johon pitäisi jotenkin päästä sisälle, että mitään sen tuottamaa sisältöä tai koneita pystyisi nökemään. Unohdin tämän raportoida. Katsoin vielä ipcalcin avulla, että asia tosiaan on näin._
+
+![htb007](./kuvat/htb007.png)
+
+
 Olin jo aikaisemmin tehnyt tämän tehtävän osittain, mutta laitetaan vielä kerta kiellon päälle. Aloitin katsomalla **HackTheBoxin** sivustolta missä osotteissa kyseisen palvelun verkko sijaitsee. Sivusto ilmoittaa **10.10.10.0/24 (10.10.10.1-10.10.10.254).** Käväisin katsomassa vielä, missä osoitteessa aikaisemmin skannaamani kone **Time** sijaitsee ja yritin pingata sitä.
 
     $ ping 10.10.10.214
