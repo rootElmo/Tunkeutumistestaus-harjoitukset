@@ -63,14 +63,24 @@ Ajamalla komennon
 
     nmap -v -sS -O 10.2.1.3
 
-**Trinity** ajaa TCP SYN skannauksen, sekä tiedustelee kohteen käyttöjärjestelmää. Seuraavaksi hän käyttää tunnettua haavoittuvuutta kohdejärjestelmän SSH-palvelussa.
+**Trinity** ajaa **TCP SYN**-skannauksen, sekä tiedustelee kohteen käyttöjärjestelmää. Seuraavaksi hän käyttää tunnettua haavoittuvuutta kohdejärjestelmän SSH-palvelussa.
 
 Luvun viimeisessä kohdassa käsiteltiin oikeaa tapausta, jonka seurauksena luvussa seurattu **Lee 'MadHat' Heath** sovelti **nmap**ia omassa työssään sillä seurauksella, että päätyi kirjoittamaan muutamat toiminnallisuudet **nmap**in päälle. Kyseiset skriptit ovat löydettävissä [täältä.](http://www.unspecific.com/nmap/)
 
 **Lee**n ongelma oli, että hänen yrityksensä ylläpiti mittavaa tietokoneiden verkostoa ja sen skannaamiseen kuluva aika oli yli 30 tuntia. Tästä johtuen **Lee** kirjoitti skriptin, joka ajaisi useamman **nmap**-prosessin rinnakkain.
 
 
+### Port Scanning Basics ja Port Scanning Techniques
 
+**nmapin** ilmoituksista porttien suhteen voi päätellä, minkälaisessa tilassa kulloinenkin ilmoitettu portti on.
+
+  * open: Portissa pyörii jokin palvelu, joka kuuntelee aktiivisesti. Näitä haetaan porttiskannauksesssa lähtökohtaisesti.
+  * closed: Porttiin on pääsy, eli **nmap** saa lähetettyä viestin sinne ja saa  vastauksen, mutta portissa ei ole mitään sovellusta kuuntelemassa.
+  * filtered: **nmap** ei osaa sanoa onko portti käytettävissä vai estääkö jokin palomuuri tai palvelun asetus kyselyjen menemisen perille, koska vastausta ei koskaan saavu.
+  * open|filtered: **nmap** antaa tämän, kun se ei ole varma onko portti auki vaiko suodatettu (filtered). Tämä on yleinen tulos **UDP**-skannauksessa. (Käyty myöhemmässä harjoituksessa)
+
+
+**nmapissa** on myös monta tapaa skannata kohde. Skannaus voidaan tehdä hiljaisesti tai asteittain enemmän agressiivisesti. Voidaan myös skannata **TCP** tai **UDP** palveluita erikseen tai yhdessä.
 
 
 ## nmapin käyttö (kohta a ja b)
