@@ -346,6 +346,8 @@ Pingasin seuraavaksi **Time**-konetta uudestaan ja paketit menivät perille! My�
 
 ![htb003](./kuvat/htb003.png)
 
+_Kommentti: Olin nopeasti juossut tämän läpi ja huomasin jälkeenpäin, että packetloss oli 88% luokkaa. Kuitenkin yksi paketti meni läpi ja pääsin myöhemmin selaamaan verkossa olevan koneen webbipalvelinta. Tästä päätellen yhteys toimii, mutta en ehkä olisi yhden perille menneen paketin varaan laittanut olettamusta, että yhteys tosiaan toimii._
+
 Oletettavasti yhteys toimisi nyt. Unohdin käyttää aikaisemmassa kohdassa **wiresharkia**, joten katkaisin **openvpn** yhteyden ja yritin pingata **Time**-konetta uudelleen. Koska **openvpn**-yhteyden katkaisun myötä katosi myös verkkolaite **tun0**, kuuntelin **wiresharkilla** kaikkia verkkolaitteita. **wiresharkista** näkyy, että pingejä lähtee, mutta mitään vastausta ei tule.
 
 ![htb004](./kuvat/htb004.png)
@@ -356,7 +358,7 @@ Laitoin uudelleen yhteyden auki **HackTheBoxin** verkkoon samalla tapaa kuin aik
 
 ![htb005](./kuvat/htb005.png)
 
-Sain pitkän listan aukinaisia porttaja eri koneista. Päätin valita täysin sattumanvaraisesti valita koneen **10.10.10.209** ja käydä katsomassa selaimella, näkyisikö mitään. Jokin **Doctor**-sivusto aukesi syöttämällä vain koneen IP:n selaimeen.
+Sain pitkän listan aukinaisia porttaja eri koneista. Kuten myös **wiresharkin** listauksesta näkyy, osa palveluista antaa takaisin **RST**-pakettia, tarkoittaen, että portissa ei pyöri mitään, mutta lähettämämme **SYN**-paketti pääsee kohteeseen. Päätin valita täysin sattumanvaraisesti valita koneen **10.10.10.209** ja käydä katsomassa selaimella, näkyisikö mitään. Jokin **Doctor**-sivusto aukesi syöttämällä vain koneen IP:n selaimeen.
 
 ![htb006](./kuvat/htb006.png)
 
