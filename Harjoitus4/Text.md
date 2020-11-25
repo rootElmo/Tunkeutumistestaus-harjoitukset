@@ -1,0 +1,18 @@
+# Harjoitus 4
+
+## Kohta z
+
+Lue artikkelit ja katso videot, tee kustakin muistiinpanot (muutama ranskalainen viiva per artikkeli/video).
+
+(Writeup - IppSec - Youtube) [täällä](https://www.youtube.com/watch?v=GKq4cwBfH24)
+
+## kohta a, Etsi ja kokeile 5 uutta työkalua jostain lukemastasi/katsomastasi läpikävelystä.
+
+## kohta b, Tiedustele ja analysoi 5 htb konetta perusteellisesti
+
+## kohta c, Nimeä 1-3 walktrough:ta, joissa tunkeudutaan samantapaisiin palveluihin, joita käsittelit kohdassa b
+
+
+# Lähteet
+
+1. [Youtube - IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
