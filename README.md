@@ -7,3 +7,5 @@
 ### [Harjoitus 2](./Harjoitus2/Text.md)
 
 ### [Harjoitus 3](./Harjoitus3/Text.md)
+
+### [Harjoitus 4](./Harjoitus4/Text.md)
