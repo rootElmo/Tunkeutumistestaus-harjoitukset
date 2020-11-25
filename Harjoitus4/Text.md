@@ -7,6 +7,7 @@
 Lue artikkelit ja katso videot, tee kustakin muistiinpanot (muutama ranskalainen viiva per artikkeli/video).
 
 (Writeup - IppSec - Youtube) [täällä](https://www.youtube.com/watch?v=GKq4cwBfH24)
+[0xdf - HTB Adminer](https://0xdf.gitlab.io/2020/09/26/htb-admirer.html)
 
 ## kohta a, Etsi ja kokeile 5 uutta työkalua jostain lukemastasi/katsomastasi läpikävelystä.
 
@@ -17,4 +18,6 @@ Lue artikkelit ja katso videot, tee kustakin muistiinpanot (muutama ranskalainen
 
 # Lähteet
 
-1. [Youtube - IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
+1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+2. [Youtube - IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
+3. [0xdf - HTB Adminer](https://0xdf.gitlab.io/2020/09/26/htb-admirer.html)
