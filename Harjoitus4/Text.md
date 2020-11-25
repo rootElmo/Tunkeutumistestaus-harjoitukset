@@ -1,5 +1,7 @@
 # Harjoitus 4
 
+[tero karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+
 ## Kohta z
 
 Lue artikkelit ja katso videot, tee kustakin muistiinpanot (muutama ranskalainen viiva per artikkeli/video).
