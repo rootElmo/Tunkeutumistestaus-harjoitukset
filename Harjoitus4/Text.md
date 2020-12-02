@@ -73,12 +73,69 @@ Pyyntö, sekä syöttämäni teksti osui haaviin. Nyt voisin muokata pyyntöä k
 Sivusto valittaa saaneensa syötteen "foobar123", joten pyynnön kaappaus ja muokkaus onnistui **BurpSuitella**.
 
 
-### 
+### LinEnum
 
+[Linkki ohjelmaan.](https://github.com/rebootuser/LinEnum) **LinEnumilla** voi enumeroida kokonaisen Linux-koneen vaihtelevalla intensiteetillä. Ohjelmalla voi löytää jänniä kansioita, tiedostoja, käyttäjänimiä jne. Hyödyllinen työkalu, jos on saanut käsiinsä jonkin kohdekoneen käyttäjätunnukset ja päässyt kirjautumaan.
+
+Kokeilin komennolla
+
+  $ ./LinEnum.sh -r TestRun -e /tmp/
+
+ja sain pitkän tulosteen. Tuloste ei mahdu ylensä kokonaan terminaalin näytölle, joten se kannattaa ottaa tiedostona talteen. Tulosteesta näkyä mm. komentohistoriani.
+
+![linenum001.png](./kuvat/linenum001.png)
+
+Huomioitavan arvoista on se, että komentohistoriasta näkyy - ainakin itsellä - koneen luonnista asti annetut komennot. Tämä voi olla erittäin mehukas tiedonpala, jos haluaa tietää kohdekoneen konffaukset, mahdolliset käyttäjien luonnit jne.
 
 
 
 ## kohta b, Tiedustele ja analysoi 5 htb konetta perusteellisesti
+
+Aloitin ajamalla **nmapin** **HackTheBoxin** koneisiin 10.10.10.188-254.
+
+  $ sudo nmap -sT -sC -sV --reason 10.10.10.188-254
+
+Tulostetta tuli jonkin verran, koko pätkä löytyy [täältä.](./iso_nmap.txt).
+
+Kone osoitteessa **10.10.10.217**:
+
+  * Portit **22**, **80** ja **443**
+  * Oletettavasti Windows-kone versioskannauksen tietojen perusteella (22/tcp .... OpenSSH for_Windows_7.7 (protocol 2.0))
+  * Koneen nimi vaikuttaisi olevan **Cereal** (ssl-cert: Subject: commonName=cereal.htb
+| Subject Alternative Name: DNS:cereal.htb, DNS:source.cereal.htb)
+
+Kone osoitteessa **10.10.10.218**:
+
+  * NetBSD-kone versioskannauksesta päätellen (OpenSSH 8.0 (NetBSD 20190418-hpn13v14-lpk; ......, Service Info: OS: NetBSD; CPE: cpe:/o:netbsd:netbsd)
+  * Portit **22**, **80**, sekä **9001**
+  * Jostain **nmapin**-skripteistä löytyi jotain yllättävää: näyttäisi, että koneella on sama **SSH-avain**, kuin parilla muulla skannaamallani koneella (...... | ssh-hostkey: Possible duplicate hosts
+| Key 3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA) used by:
+|   10.10.10.201
+|   10.10.10.205
+|   10.10.10.212 ......)
+  * Portissa **9001** pyörii jokin **Medusa**-niminen palvelu.
+
+Kone osoitteessa **10.10.10.208**:
+
+  * Portit **21**, **22**, sekä **80** auki.
+  * Portissa **21** pyörivä **ftp**-palvelu (vsftpd 2.0.8) ei ole uusin versio kyseisestä palvelusta. Tähän voisi etsiä haavoittuvuuksia.
+  * Vaikuttaa olevan Linux-kone (Service Info: Host: Cross; OS: Linux)
+
+Kone osoitteessa **10.10.10.201**:
+ 
+  * Portit **22**, **9000**, sekä **9100** auki
+  * Kone palautti jostain palvelusta melkoisen mielenkiintoisen möykyn jotain dataa. Näyttää jollain tavalla salakirjoitetulta tai muuten enkoodatulta (....... SF-Port9000-TCP:V=7.91%I=7%D=12/2%Time=5FC7C7F1%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0
+SF:\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0")%r(GenericLines,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\
+SF:0\0\0\x05\0@\0\0\0\x06 .......)
+
+Kone osoitteessa **10.10.10.200**:
+
+  * Portit **22**, **873**, sekä **3128** auki
+  * Portissa **22** OpenSSH ei ole viimeisin versio (OpenSSH 7.9p1 Debian), nopealla Googlauksella löytyi jo mahdollisia haavoittuvuuksia. [Täällä niistä lisää](https://www.cybersecurity-help.cz/vdb/openssh/openssh/7.9p1/)
+  * Oletettavasti Linux-kone (Service Info: OS: Linux)
+
 
 ## kohta c, Nimeä 1-3 walktrough:ta, joissa tunkeudutaan samantapaisiin palveluihin, joita käsittelit kohdassa b
 
@@ -89,3 +146,4 @@ Sivusto valittaa saaneensa syötteen "foobar123", joten pyynnön kaappaus ja muo
 2. [Youtube - IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
 3. [0xdf - HTB Adminer](https://0xdf.gitlab.io/2020/09/26/htb-admirer.html)
 4. [0xdf - HTB Frolic](https://0xdf.gitlab.io/2019/03/23/htb-frolic.html)
+5. [cybersecurity](https://www.cybersecurity-help.cz/vdb/openssh/openssh/7.9p1/)

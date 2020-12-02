@@ -1,0 +1,472 @@
+Nmap scan report for 10.10.10.196
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 closed ports
+Reason: 997 conn-refused
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 7.9p1 Ubuntu 10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 bc:d9:40:18:5e:2b:2b:12:3d:0b:1f:f3:6f:03:1b:8f (RSA)
+|   256 15:23:6f:a6:d8:13:6e:c4:5b:c5:4a:6f:5a:6b:0b:4d (ECDSA)
+|_  256 83:44:a5:b4:88:c2:e9:28:41:6a:da:9e:a8:3a:10:90 (ED25519)
+5000/tcp open  http    syn-ack nginx
+| http-robots.txt: 55 disallowed entries (15 shown)
+| / /autocomplete/users /search /api /admin /profile 
+| /dashboard /projects/new /groups/new /groups/*/edit /users /help 
+|_/s/ /snippets/new /snippets/*/edit
+| http-title: Sign in \xC2\xB7 GitLab
+|_Requested resource was http://10.10.10.196:5000/users/sign_in
+|_http-trane-info: Problem with XML parsing of /evox/about
+8000/tcp open  http    syn-ack Werkzeug httpd 0.14.1 (Python 3.7.3)
+|_http-server-header: Werkzeug/0.14.1 Python/3.7.3
+|_http-title: Home
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.197
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 993 closed ports
+Reason: 993 conn-refused
+PORT     STATE SERVICE  REASON  VERSION
+21/tcp   open  ftp      syn-ack vsftpd 3.0.3
+22/tcp   open  ssh      syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 57:c9:00:35:36:56:e6:6f:f6:de:86:40:b2:ee:3e:fd (RSA)
+|   256 d8:21:23:28:1d:b8:30:46:e2:67:2d:59:65:f0:0a:05 (ECDSA)
+|_  256 5e:4f:23:4e:d4:90:8e:e9:5e:89:74:b3:19:0c:fc:1a (ED25519)
+25/tcp   open  smtp     syn-ack Postfix smtpd
+|_smtp-commands: debian, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, SMTPUTF8, CHUNKING, 
+80/tcp   open  http     syn-ack nginx 1.14.2
+|_http-server-header: nginx/1.14.2
+|_http-title: Did not follow redirect to http://sneakycorp.htb
+143/tcp  open  imap     syn-ack Courier Imapd (released 2018)
+|_imap-capabilities: UTF8=ACCEPTA0001 CHILDREN ACL2=UNION IMAP4rev1 CAPABILITY SORT THREAD=ORDEREDSUBJECT OK ENABLE UIDPLUS IDLE completed QUOTA STARTTLS THREAD=REFERENCES ACL NAMESPACE
+| ssl-cert: Subject: commonName=localhost/organizationName=Courier Mail Server/stateOrProvinceName=NY/countryName=US
+| Subject Alternative Name: email:postmaster@example.com
+| Not valid before: 2020-05-14T17:14:21
+|_Not valid after:  2021-05-14T17:14:21
+|_ssl-date: TLS randomness does not represent time
+993/tcp  open  ssl/imap syn-ack Courier Imapd (released 2018)
+|_imap-capabilities: UTF8=ACCEPTA0001 CHILDREN ACL2=UNION IMAP4rev1 CAPABILITY SORT THREAD=ORDEREDSUBJECT OK AUTH=PLAIN ENABLE UIDPLUS IDLE completed QUOTA THREAD=REFERENCES ACL NAMESPACE
+| ssl-cert: Subject: commonName=localhost/organizationName=Courier Mail Server/stateOrProvinceName=NY/countryName=US
+| Subject Alternative Name: email:postmaster@example.com
+| Not valid before: 2020-05-14T17:14:21
+|_Not valid after:  2021-05-14T17:14:21
+|_ssl-date: TLS randomness does not represent time
+8080/tcp open  http     syn-ack nginx 1.14.2
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: nginx/1.14.2
+|_http-title: Welcome to nginx!
+Service Info: Host:  debian; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.198
+Host is up, received echo-reply ttl 127 (0.18s latency).
+Not shown: 999 filtered ports
+Reason: 999 no-responses
+PORT     STATE SERVICE REASON  VERSION
+8080/tcp open  http    syn-ack Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.4.6)
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.4.6
+|_http-title: mrb3n's Bro Hut
+
+Nmap scan report for 10.10.10.199
+Host is up, received echo-reply ttl 254 (0.12s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 8.1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 5e:ff:81:e9:1f:9b:f8:9a:25:df:5d:82:1a:dd:7a:81 (RSA)
+|   256 64:7a:5a:52:85:c5:6d:d5:4a:6b:a7:1a:9a:8a:b9:bb (ECDSA)
+|_  256 12:35:4b:6e:23:09:dc:ea:00:8c:72:20:c7:50:32:f3 (ED25519)
+80/tcp open  http    syn-ack OpenBSD httpd
+|_http-title: Site doesn't have a title (text/html).
+
+Nmap scan report for 10.10.10.200
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 closed ports
+Reason: 997 conn-refused
+PORT     STATE SERVICE    REASON  VERSION
+22/tcp   open  ssh        syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 a2:76:5c:b0:88:6f:9e:62:e8:83:51:e7:cf:bf:2d:f2 (RSA)
+|   256 d0:65:fb:f6:3e:11:b1:d6:e6:f7:5e:c0:15:0c:0a:77 (ECDSA)
+|_  256 5e:2b:93:59:1d:49:28:8d:43:2c:c1:f7:e3:37:0f:83 (ED25519)
+873/tcp  open  rsync      syn-ack (protocol version 31)
+3128/tcp open  http-proxy syn-ack Squid http proxy 4.6
+|_http-server-header: squid/4.6
+|_http-title: ERROR: The requested URL could not be retrieved
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.201
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 closed ports
+Reason: 997 conn-refused
+PORT     STATE SERVICE     REASON  VERSION
+22/tcp   open  ssh         syn-ack OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA)
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+9000/tcp open  cslistener? syn-ack
+9100/tcp open  jetdirect?  syn-ack
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port9000-TCP:V=7.91%I=7%D=12/2%Time=5FC7C7F1%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0
+SF:\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\
+SF:0\0\0\0\0\0\0\0\0")%r(GenericLines,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\
+SF:0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\
+SF:0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(GetRequest,3F,"\0
+SF:\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\
+SF:0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0
+SF:\0\0\0\0")%r(HTTPOptions,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\
+SF:0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x0
+SF:1\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(RTSPRequest,3F,"\0\0\x18\x0
+SF:4\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01
+SF:\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0"
+SF:)%r(RPCCheck,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06
+SF:\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x0
+SF:6\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(DNSVersionBindReqTCP,3F,"\0\0\x18\x04\0
+SF:\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\
+SF:0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r
+SF:(DNSStatusRequestTCP,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0
+SF:\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\
+SF:0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(Help,3F,"\0\0\x18\x04\0\0\0\0\0
+SF:\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x0
+SF:8\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(SSLSess
+SF:ionReq,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x
+SF:20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\
+SF:0\0\0\0\0\0\0\0\0\0\0")%r(TerminalServerCookie,3F,"\0\0\x18\x04\0\0\0\0
+SF:\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0\x20\0\xfe\x03\0\0\0\x01\0\0\x04\
+SF:x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\0\0\0\0\0\0\0\0\0\0\0\0")%r(TLSSe
+SF:ssionReq,3F,"\0\0\x18\x04\0\0\0\0\0\0\x04\0@\0\0\0\x05\0@\0\0\0\x06\0\0
+SF:\x20\0\xfe\x03\0\0\0\x01\0\0\x04\x08\0\0\0\0\0\0\?\0\x01\0\0\x08\x06\0\
+SF:0\0\0\0\0\0\0\0\0\0\0\0");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.203
+Host is up, received echo-reply ttl 127 (0.12s latency).
+Not shown: 998 filtered ports
+Reason: 998 no-responses
+PORT     STATE SERVICE  REASON  VERSION
+80/tcp   open  http     syn-ack Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: IIS Windows Server
+3690/tcp open  svnserve syn-ack Subversion
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 10.10.10.204
+Host is up, received echo-reply ttl 127 (0.12s latency).
+Not shown: 998 filtered ports
+Reason: 998 no-responses
+PORT     STATE SERVICE REASON  VERSION
+135/tcp  open  msrpc   syn-ack Microsoft Windows RPC
+8080/tcp open  upnp    syn-ack Microsoft IIS httpd
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Basic realm=Windows Device Portal
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Site doesn't have a title.
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 10.10.10.205
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA)
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+8080/tcp open  http    syn-ack Apache Tomcat 9.0.27
+|_http-title: VirusBucket
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.206
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 7.2p2 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 17:eb:9e:23:ea:23:b6:b1:bc:c6:4f:db:98:d3:d4:a1 (RSA)
+|   256 71:64:51:50:c3:7f:18:47:03:98:3e:5e:b8:10:19:fc (ECDSA)
+|_  256 fd:56:2a:f8:d0:60:a7:f1:a0:a1:47:a4:38:d6:a8:a1 (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.18 ((Ubuntu))
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+|_http-title: Passage News
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.207
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 998 filtered ports
+Reason: 998 no-responses
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 6e:da:5c:8e:8e:fb:8e:75:27:4a:b9:2a:59:cd:4b:cb (RSA)
+|   256 d5:c5:b3:0d:c8:b6:69:e4:fb:13:a3:81:4a:15:16:d2 (ECDSA)
+|_  256 35:6a:ee:af:dc:f8:5e:67:0d:bb:f3:ab:18:64:47:90 (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.29 ((Ubuntu))
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+| http-title: Legitimate Rubber Ducks | Online Store
+|_Requested resource was http://10.10.10.207/shop/en/
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.208
+Host is up, received echo-reply ttl 63 (0.25s latency).
+Not shown: 997 closed ports
+Reason: 997 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+21/tcp open  ftp     syn-ack vsftpd 2.0.8 or later
+| ssl-cert: Subject: commonName=*.crossfit.htb/organizationName=Cross Fit Ltd./stateOrProvinceName=NY/countryName=US
+| Not valid before: 2020-04-30T19:16:46
+|_Not valid after:  3991-08-16T19:16:46
+|_ssl-date: TLS randomness does not represent time
+22/tcp open  ssh     syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 b0:e7:5f:5f:7e:5a:4f:e8:e4:cf:f1:98:01:cb:3f:52 (RSA)
+|   256 67:88:2d:20:a5:c1:a7:71:50:2b:c8:07:a4:b2:60:e5 (ECDSA)
+|_  256 62:ce:a3:15:93:c8:8c:b6:8e:23:1d:66:52:f4:4f:ef (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.38 ((Debian))
+|_http-server-header: Apache/2.4.38 (Debian)
+|_http-title: Apache2 Debian Default Page: It works
+Service Info: Host: Cross; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.209
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT     STATE SERVICE  REASON  VERSION
+22/tcp   open  ssh      syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 59:4d:4e:c2:d8:cf:da:9d:a8:c8:d0:fd:99:a8:46:17 (RSA)
+|   256 7f:f3:dc:fb:2d:af:cb:ff:99:34:ac:e0:f8:00:1e:47 (ECDSA)
+|_  256 53:0e:96:6b:9c:e9:c1:a1:70:51:6c:2d:ce:7b:43:e8 (ED25519)
+80/tcp   open  http     syn-ack Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Doctor
+8089/tcp open  ssl/http syn-ack Splunkd httpd
+| http-robots.txt: 1 disallowed entry 
+|_/
+|_http-server-header: Splunkd
+|_http-title: splunkd
+| ssl-cert: Subject: commonName=SplunkServerDefaultCert/organizationName=SplunkUser
+| Not valid before: 2020-09-06T15:57:27
+|_Not valid after:  2023-09-06T15:57:27
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.210
+Host is up, received echo-reply ttl 127 (0.12s latency).
+Not shown: 991 filtered ports
+Reason: 991 no-responses
+PORT     STATE SERVICE    REASON  VERSION
+80/tcp   open  http       syn-ack Microsoft IIS httpd 8.5
+|_http-server-header: Microsoft-IIS/8.5
+|_http-title: 403 - Forbidden: Access is denied.
+443/tcp  open  ssl/https? syn-ack
+| ssl-cert: Subject: commonName=Reel2
+| Subject Alternative Name: DNS:Reel2, DNS:Reel2.htb.local
+| Not valid before: 2020-07-30T10:12:46
+|_Not valid after:  2025-07-30T10:12:46
+|_ssl-date: 2020-12-02T17:09:34+00:00; +7m28s from scanner time.
+6001/tcp open  ncacn_http syn-ack Microsoft Windows RPC over HTTP 1.0
+6002/tcp open  ncacn_http syn-ack Microsoft Windows RPC over HTTP 1.0
+6004/tcp open  ncacn_http syn-ack Microsoft Windows RPC over HTTP 1.0
+6005/tcp open  msrpc      syn-ack Microsoft Windows RPC
+6006/tcp open  msrpc      syn-ack Microsoft Windows RPC
+6007/tcp open  msrpc      syn-ack Microsoft Windows RPC
+8080/tcp open  http       syn-ack Apache httpd 2.4.43 ((Win64) OpenSSL/1.1.1g PHP/7.2.32)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+|_http-server-header: Apache/2.4.43 (Win64) OpenSSL/1.1.1g PHP/7.2.32
+|_http-title: Welcome | Wallstant
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: 7m27s
+
+Nmap scan report for 10.10.10.211
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 fd:80:8b:0c:73:93:d6:30:dc:ec:83:55:7c:9f:5d:12 (RSA)
+|   256 61:99:05:76:54:07:92:ef:ee:34:cf:b7:3e:8a:05:c6 (ECDSA)
+|_  256 7c:6d:39:ca:e7:e8:9c:53:65:f7:e2:7e:c7:17:2d:c3 (ED25519)
+8000/tcp open  http    syn-ack Apache httpd 2.4.38
+|_http-generator: gitweb/2.20.1 git/2.20.1
+| http-open-proxy: Potentially OPEN proxy.
+|_Methods supported:CONNECTION
+|_http-server-header: Apache/2.4.38 (Debian)
+| http-title: 10.10.10.211 Git
+|_Requested resource was http://10.10.10.211:8000/gitweb/
+8080/tcp open  http    syn-ack nginx 1.14.2 (Phusion Passenger 6.0.6)
+|_http-server-header: nginx/1.14.2 + Phusion Passenger 6.0.6
+|_http-title: BL0G!
+Service Info: Host: jewel.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.212
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA)
+|   256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA)
+|_  256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.41
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Did not follow redirect to http://bucket.htb/
+Service Info: Host: 127.0.1.1; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.213
+Host is up, received echo-reply ttl 127 (0.12s latency).
+Not shown: 998 filtered ports
+Reason: 998 no-responses
+PORT    STATE SERVICE REASON  VERSION
+80/tcp  open  http    syn-ack Microsoft IIS httpd 10.0
+| http-methods: 
+|_  Potentially risky methods: TRACE
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Gigantic Hosting | Home
+135/tcp open  msrpc   syn-ack Microsoft Windows RPC
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Nmap scan report for 10.10.10.214
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 0f:7d:97:82:5f:04:2b:e0:0a:56:32:5d:14:56:82:d4 (RSA)
+|   256 24:ea:53:49:d8:cb:9b:fc:d6:c4:26:ef:dd:34:c1:1e (ECDSA)
+|_  256 fe:25:34:e4:3e:df:9f:ed:62:2a:a4:93:52:cc:cd:27 (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Online JSON parser
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.215
+Host is up, received echo-reply ttl 63 (0.13s latency).
+Not shown: 998 closed ports
+Reason: 998 conn-refused
+PORT   STATE SERVICE REASON  VERSION
+22/tcp open  ssh     syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 c0:90:a3:d8:35:25:6f:fa:33:06:cf:80:13:a0:a5:53 (RSA)
+|   256 2a:d5:4b:d0:46:f0:ed:c9:3c:8d:f6:5d:ab:ae:77:96 (ECDSA)
+|_  256 e1:64:14:c3:cc:51:b2:3b:a6:28:a7:b1:ae:5f:45:35 (ED25519)
+80/tcp open  http    syn-ack Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Did not follow redirect to http://academy.htb/
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.216
+Host is up, received echo-reply ttl 63 (0.12s latency).
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT    STATE SERVICE  REASON  VERSION
+22/tcp  open  ssh      syn-ack OpenSSH 8.2p1 Ubuntu 4ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 25:ba:64:8f:79:9d:5d:95:97:2c:1b:b2:5e:9b:55:0d (RSA)
+|   256 28:00:89:05:55:f9:a2:ea:3c:7d:70:ea:4d:ea:60:0f (ECDSA)
+|_  256 77:20:ff:e9:46:c0:68:92:1a:0b:21:29:d1:53:aa:87 (ED25519)
+80/tcp  open  http     syn-ack Apache httpd 2.4.41
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Did not follow redirect to https://laboratory.htb/
+443/tcp open  ssl/http syn-ack Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: The Laboratory
+| ssl-cert: Subject: commonName=laboratory.htb
+| Subject Alternative Name: DNS:git.laboratory.htb
+| Not valid before: 2020-07-05T10:39:28
+|_Not valid after:  2024-03-03T10:39:28
+| tls-alpn: 
+|_  http/1.1
+Service Info: Host: laboratory.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Nmap scan report for 10.10.10.217
+Host is up, received echo-reply ttl 127 (0.12s latency).
+Not shown: 997 filtered ports
+Reason: 997 no-responses
+PORT    STATE SERVICE  REASON  VERSION
+22/tcp  open  ssh      syn-ack OpenSSH for_Windows_7.7 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 08:8e:fe:04:8c:ad:6f:df:88:c7:f3:9a:c5:da:6d:ac (RSA)
+|   256 fb:f5:7b:a1:68:07:c0:7b:73:d2:ad:33:df:0a:fc:ac (ECDSA)
+|_  256 cc:0e:70:ec:33:42:59:78:31:c0:4e:c2:a5:c9:0e:1e (ED25519)
+80/tcp  open  http     syn-ack Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Did not follow redirect to https://10.10.10.217/
+443/tcp open  ssl/http syn-ack Microsoft IIS httpd 10.0
+|_http-server-header: Microsoft-IIS/10.0
+|_http-title: Cereal
+| ssl-cert: Subject: commonName=cereal.htb
+| Subject Alternative Name: DNS:cereal.htb, DNS:source.cereal.htb
+| Not valid before: 2020-11-11T19:57:18
+|_Not valid after:  2040-11-11T20:07:19
+|_ssl-date: 2020-12-02T17:09:34+00:00; +7m28s from scanner time.
+| tls-alpn: 
+|_  http/1.1
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: 7m27s
+
+Nmap scan report for 10.10.10.218
+Host is up, received echo-reply ttl 254 (0.12s latency).
+Not shown: 997 closed ports
+Reason: 997 conn-refused
+PORT     STATE SERVICE REASON  VERSION
+22/tcp   open  ssh     syn-ack OpenSSH 8.0 (NetBSD 20190418-hpn13v14-lpk; protocol 2.0)
+| ssh-hostkey: 
+|   3072 20:97:7f:6c:4a:6e:5d:20:cf:fd:a3:aa:a9:0d:37:db (RSA)
+|   521 35:c3:29:e1:87:70:6d:73:74:b2:a9:a2:04:a9:66:69 (ECDSA)
+|_  256 b3:bd:31:6d:cc:22:6b:18:ed:27:66:b4:a7:2a:e4:a5 (ED25519)
+80/tcp   open  http    syn-ack nginx 1.19.0
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Basic realm=.
+| http-robots.txt: 1 disallowed entry 
+|_/weather
+|_http-server-header: nginx/1.19.0
+|_http-title: 401 Unauthorized
+9001/tcp open  http    syn-ack Medusa httpd 1.12 (Supervisor process manager)
+| http-auth: 
+| HTTP/1.1 401 Unauthorized\x0D
+|_  Basic realm=default
+|_http-server-header: Medusa/1.12
+|_http-title: Error response
+Service Info: OS: NetBSD; CPE: cpe:/o:netbsd:netbsd
+
+Post-scan script results:
+| clock-skew: 
+|   7m27s: 
+|     10.10.10.217
+|_    10.10.10.210
+| ssh-hostkey: Possible duplicate hosts
+| Key 3072 48:ad:d5:b8:3a:9f:bc:be:f7:e8:20:1e:f6:bf:de:ae (RSA) used by:
+|   10.10.10.201
+|   10.10.10.205
+|   10.10.10.212
+| Key 256 18:cd:9d:08:a6:21:a8:b8:b6:f7:9f:8d:40:51:54:fb (ED25519) used by:
+|   10.10.10.201
+|   10.10.10.205
+|   10.10.10.212
+| Key 256 b7:89:6c:0b:20:ed:49:b2:c1:86:7c:29:92:74:1c:1f (ECDSA) used by:
+|   10.10.10.201
+|   10.10.10.205
+|_  10.10.10.212
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 67 IP addresses (22 hosts up) scanned in 638.34 seconds
