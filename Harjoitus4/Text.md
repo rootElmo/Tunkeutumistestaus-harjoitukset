@@ -34,7 +34,7 @@ Lue artikkelit ja katso videot, tee kustakin muistiinpanot (muutama ranskalainen
 
 Aloitin tiedustelemalla **Doctor**-nimisen koneen **HackTheBoxin** verkosta **nmapilla**.
 
-  $ sudo nmap 10.10.10.209 -sT -sV -sC -oA doctor
+    $ sudo nmap 10.10.10.209 -sT -sV -sC -oA doctor
 
 Koneesta paljastui **Apache** pyörimässä portissa **80**, **SSH** portissa **22**, sekä jokin **splunkd** niminen demoni portissa **8089**. Samasta portista tulee myös ilmoitus **robots.txt**-tiedoston olemassaolosta, joka viittaisi siihen, että hakukoneiden indeksoinnilta halutaan estää jokin sivusto.
 
@@ -42,13 +42,13 @@ Koneesta paljastui **Apache** pyörimässä portissa **80**, **SSH** portissa **
 
 Lähdin ajamaan **gobusteria** aluksi **rockyou.txt**-sanakirjalla, mutta tajusin sen kestävän ikusuuksia, joten tarkistin sanalistat uudestaan ja ajoin komennon uudestaan **dirbusterin** sanakirjalla. Käytin myös **-r**-lippua, jolloin **gobuster** ei jatkaa crawlausta redirectin vastaan tullessa.
 
-  $ gobuster dir -u 10.10.10.209 -w /usr/share/wordlists/rockyou.txt 
+    $ gobuster dir -u 10.10.10.209 -w /usr/share/wordlists/rockyou.txt 
 
-  $ gobuster dir -r -u 10.10.10.209 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
+    $ gobuster dir -r -u 10.10.10.209 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
 
 Medium-sanalistakin oli suhteellisen pitkä, joten ajoin uudestaan pienemmällä sanalistalla
 
-  $ gobuster dir -u 10.10.10.209 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+    $ gobuster dir -u 10.10.10.209 -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
 
 Tulokseksi en saanut valitettavasti mitään jännittävää. Lähinnä perus html, js, images, sekä fonts kansiot löytyivät.
 
@@ -79,7 +79,7 @@ Sivusto valittaa saaneensa syötteen "foobar123", joten pyynnön kaappaus ja muo
 
 Kokeilin komennolla
 
-  $ ./LinEnum.sh -r TestRun -e /tmp/
+    $ ./LinEnum.sh -r TestRun -e /tmp/
 
 ja sain pitkän tulosteen. Tuloste ei mahdu ylensä kokonaan terminaalin näytölle, joten se kannattaa ottaa tiedostona talteen. Tulosteesta näkyä mm. komentohistoriani.
 
@@ -93,7 +93,7 @@ Huomioitavan arvoista on se, että komentohistoriasta näkyy - ainakin itsellä 
 
 Aloitin ajamalla **nmapin** **HackTheBoxin** koneisiin 10.10.10.188-254.
 
-  $ sudo nmap -sT -sC -sV --reason 10.10.10.188-254
+    $ sudo nmap -sT -sC -sV --reason 10.10.10.188-254
 
 Tulostetta tuli jonkin verran, koko pätkä löytyy [täältä.](./iso_nmap.txt).
 
