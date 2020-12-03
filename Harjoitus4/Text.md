@@ -88,6 +88,26 @@ ja sain pitkän tulosteen. Tuloste ei mahdu ylensä kokonaan terminaalin näytö
 Huomioitavan arvoista on se, että komentohistoriasta näkyy - ainakin itsellä - koneen luonnista asti annetut komennot. Tämä voi olla erittäin mehukas tiedonpala, jos haluaa tietää kohdekoneen konffaukset, mahdolliset käyttäjien luonnit jne.
 
 
+### SMBrute
+
+**SMBrute** on kevyehkö työkalu, jolla voi bruteforcella tiedustella **Samba**-palvelimien käyttäjätunnuksia ja salasanoja. Ohjelmalla voi myös listata hakemistoja.
+
+Latasin **SMBruten** koneelleni [täältä (GitHub)](https://github.com/m4ll0k/SMBrute). Asennus ja testiajo tapahtui helposti **READMEssä** mainituilla komennoilla:
+
+    $ git clone https://github.com/m4ll0k/SMBrute.git smbrute
+    $ cd SMBrute
+    $ pip3 install pysmb humanfriendly
+    $ python3 smbrute.py
+
+![smbrute001.png](./kuvat/smbrute001.png)
+
+Tiesin jo aikaisemmin itsenäisestä **HackTheBoxin** koneen **Lame** (IP **10.10.10.3**) tiedustelusta, että sillä pyörii aukinainen **SMB** palvelin, joten päätin kokeilla testata ohjelmaa sinne.
+
+    $ python3 smbrute.py -h 10.10.10.3
+
+![smbrute002](./kuvat/smbrute002.png)
+
+Palvelimelta paljastui **tmp**-kansio! Kommenteissa lukee **oh noes!**. Oh noes indeed! Voisin tiedustella näillä tiedoin pidemmälle.
 
 ## kohta b, Tiedustele ja analysoi 5 htb konetta perusteellisesti
 
