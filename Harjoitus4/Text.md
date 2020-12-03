@@ -167,10 +167,11 @@ Kone osoitteessa **10.10.10.200**:
 # Lähteet
 
 1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
-2. [Youtube - IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
+2. [IppSec - Writeup](https://www.youtube.com/watch?v=GKq4cwBfH24)
 3. [0xdf - HTB Adminer](https://0xdf.gitlab.io/2020/09/26/htb-admirer.html)
 4. [0xdf - HTB Frolic](https://0xdf.gitlab.io/2019/03/23/htb-frolic.html)
 5. [cybersecurity](https://www.cybersecurity-help.cz/vdb/openssh/openssh/7.9p1/)
 6. [LinEnum](https://github.com/rebootuser/LinEnum)
 7. [SMBrute](https://github.com/m4ll0k/SMBrute)
 8. [0xdf - HTB Traceback](https://0xdf.gitlab.io/2020/08/15/htb-traceback.html)
+9. [IppSec - HTB Cache](https://www.youtube.com/watch?v=kfLU5-Eeyhw&t=485)
