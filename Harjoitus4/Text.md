@@ -1,6 +1,6 @@
 # Harjoitus 4
 
-[tero karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
+Tehtävänanto löytyy kokonaisuudessaan **H4**-kohdasta [Tero Karvisen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/) nettisivuilta.
 
 ## Kohta z
 
@@ -159,6 +159,10 @@ Kone osoitteessa **10.10.10.200**:
 
 ## kohta c, Nimeä 1-3 walktrough:ta, joissa tunkeudutaan samantapaisiin palveluihin, joita käsittelit kohdassa b
 
+[0xdf:n läpikäynnissä](https://0xdf.gitlab.io/2020/08/15/htb-traceback.html) **HackTheBoxin Traceback**-koneelle **0xdf** käyttää mm. **LinEnumia** MOTD-kansion enumerointiin **privesc**-vaiheessa, sekä **Gobusteria**, vaikka se ei tässä tapauksessa tuottanutkaan tulosta.
+
+[IppSecin läpikäynnissä](https://www.youtube.com/watch?v=kfLU5-Eeyhw&t=485) **HackTheBoxin Cache**-koneelle **IppSec** käyttää mm. **BurpSuitea**, sekä **Gobusteria**. **BurpSuitea** yritettiin käyttää kirjautumislomakkeen bruteforcaamiseen **SQL-injektioin**. **BurpSuite** ei kuitenkaan napannut lomakkeenlähetystä. Käyttäjän salasana löytyi paikallisesta **JavaScriptistä**. **Gobusteria** virtuaalihostien skannaukseen. Joissain webbiympäristöissä useaa palvelua voidaan tarjota yhdestä koneesta, jolloin tarvitaan virtuaalihosteja. Haaviin jäi **hms.htb**, ja käyttäen **BurpSuitea** lähettääkseen pyynnön tuohon hostiin **IppSec** löysi uuden kirjautumissivun palveluun **openEMR**.
+
 
 # Lähteet
 
@@ -167,3 +171,6 @@ Kone osoitteessa **10.10.10.200**:
 3. [0xdf - HTB Adminer](https://0xdf.gitlab.io/2020/09/26/htb-admirer.html)
 4. [0xdf - HTB Frolic](https://0xdf.gitlab.io/2019/03/23/htb-frolic.html)
 5. [cybersecurity](https://www.cybersecurity-help.cz/vdb/openssh/openssh/7.9p1/)
+6. [LinEnum](https://github.com/rebootuser/LinEnum)
+7. [SMBrute](https://github.com/m4ll0k/SMBrute)
+8. [0xdf - HTB Traceback](https://0xdf.gitlab.io/2020/08/15/htb-traceback.html)
