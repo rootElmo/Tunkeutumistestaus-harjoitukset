@@ -60,8 +60,43 @@ Seuraavaksi ajoin hyökkäyksen ja sain shellin kohdekoneelle! Kokeilin vielä k
 
 ## Kohta b ja c /// Skannaa HackTheBoxin verkko
 
-**b:** Skannaa HackTheBoxin verkko niin, että tallennat tulokset Metasploitin tietokantoihin.
-**c:** Onko joukossa vanhoja tai haavoittuvia versioita.
+Aloitin avaamalla **msfconsolen** ja pingasin tunnettua **HackTheBoxin** konetta kokeillakseni yhteyden toimivuutta. Seuraavaksi loin uuden **workspacen**, johon tulisin tallentamaan tiedot tiedustelemistani koneista.
+
+    $ ping 10.10.10.198
+    $ workspace -a htb
+    $ workspace
+
+Aloitin porttiskannauksen **db_nmapilla** suhteellisen kevyillä parametreillä; versionskannauksella, sekä **nmapin** vakioskripteillä.
+
+    $ db_nmap -sC -sV 10.10.10.0-254
+
+Skannaus kesti hetkisen, mutta valmistui.
+
+![ms007.png](./kuvat/ms007.png)
+
+Ajamalla **services** komennon **msfconsolessa** näen nyt kaikki skannatujen kohteiden portit, joista **nmap** löysi jotain. Voin myös suodattaa tuloksia **IP-osoitteen** mukaan ajamalla **services (koneen IP)**.
+
+![ms008.png](./kuvat/ms008.png)
+
+Osaan jo suorilta käsin sanoa, että ainakin koneella, jonka **IP-osoite** on **10.10.10.3** on käynnissä vanha versio **vsftpd**-palvelusta, johon löytyy valmis hyökkäys **metasploitista**. Toki, kyseinen **2.3.4**-versio oli haavoittuvainen vain hetken aikaa. Voin etsiä **metasploitilla** valmista hyökkäystä.
+
+    $ search vsftpd
+
+![ms009.png](./kuvat/ms009.png)
+
+Myös **10.10.10.7** osoitteessa sijaitsevalla koneella on vanha versio **Apachesta** (2.2.3). **Metasploitissa** ei löytynyt juuri tuolle versiolle mitään valmista hyökkäystä, mutta **cvedetails.com** kertoo useammasta haavoittuvuudesta kyseisessä **Apachen** versiossa [(cvedetails)](https://www.cvedetails.com/vulnerability-list/vendor_id-45/product_id-66/version_id-40007/Apache-Http-Server-2.2.3.html)
+
+Katsoin myös kohteen **10.10.10.160** avointen palveluiden joukosta jos sieltä löytyisi jotain jännittävää. Itsellä iski silmään **MiniServ 1.910 Webmin httpd**. Käytin **searchsploitia** etsiäkseni hyökkäyksiä.
+
+    $ services 10.10.10.160
+    $ searchsploit webmin
+
+Löytyi kolme vaihtoehtoa, jotka vaikuttaisivat kokeilun arvoisilta: 
+**Webmin 1.910 - 'Package Updates' Remote Command Execution (Metasploit)**,
+**Webmin 1.920 - Remote Code Execution**, sekä
+**Webmin 1.920 - Unauthenticated Remote Code Execution (Metasploit)**.
+
+![ms011.png](./kuvat/ms011.png)
 
 ## Kohta k /// Korkkaa jokin HTB:n kone
 
@@ -71,3 +106,4 @@ Seuraavaksi ajoin hyökkäyksen ja sain shellin kohdekoneelle! Kokeilin vielä k
 2. [Sourceforge](https://sourceforge.net/projects/metasploitable/)
 3. [Securing Ninja](https://securingninja.com/how-to-install-metasploitable-in-virtualbox/)
 4. [rapid7](https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/)
+5. [cvedetails](https://www.cvedetails.com/vulnerability-list/vendor_id-45/product_id-66/version_id-40007/Apache-Http-Server-2.2.3.html)
