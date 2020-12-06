@@ -73,6 +73,13 @@ jotta hyökkäys kohdistuu oikein. Muut tiedot olivatkin jo oikein.
 
 ![ms014.png](./kuvat/ms014.png)
 
+Seuraavaksi käytin hyökkäystä ja pääsin koneeseen sisään! Ajoin vielä **whoami**:n katsoakseni, millä käyttäjällä olin päässyt sisään.
+
+    $ exploit
+    (kohdekone)$ whoami
+
+![ms015.png](./kuvat/ms015.png)
+
 ## Kohta b ja c /// Skannaa HackTheBoxin verkko
 
 Aloitin avaamalla **msfconsolen** ja pingasin tunnettua **HackTheBoxin** konetta kokeillakseni yhteyden toimivuutta. Seuraavaksi loin uuden **workspacen**, johon tulisin tallentamaan tiedot tiedustelemistani koneista.
