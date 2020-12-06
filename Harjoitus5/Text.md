@@ -57,6 +57,21 @@ Seuraavaksi ajoin hyökkäyksen ja sain shellin kohdekoneelle! Kokeilin vielä k
 ![ms006.png](./kuvat/ms006.png)
 
 
+Huomasin myös, että koneella pyörivä **samba** oli vanhempi versio. Katsaisin nopeasti, josko kyseiseen versioon olisi valmiita hyökkäyksiä ja olihan siellä yksi.
+
+![ms012.png](./kuvat/ms012.png)
+
+Katsomalla kyseisen hyökkäyksen infoa, saamme tietää, että hyökkäys hyväksikäyttää haavoittuvuutta, jolla pääsemme ajamaan haluamiamme komentoja.
+
+![ms013.png](./kuvat/ms013.png)
+
+Asetan kohdekoneen **IP-osoitteen** komennolla
+
+    $ set RHOSTS 192.168.42.94
+
+jotta hyökkäys kohdistuu oikein. Muut tiedot olivatkin jo oikein.
+
+![ms014.png](./kuvat/ms014.png)
 
 ## Kohta b ja c /// Skannaa HackTheBoxin verkko
 
