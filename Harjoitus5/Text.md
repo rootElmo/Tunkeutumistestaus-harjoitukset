@@ -148,3 +148,5 @@ Löytyi kolme vaihtoehtoa, jotka vaikuttaisivat kokeilun arvoisilta:
 3. [Securing Ninja](https://securingninja.com/how-to-install-metasploitable-in-virtualbox/)
 4. [rapid7](https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/)
 5. [cvedetails](https://www.cvedetails.com/vulnerability-list/vendor_id-45/product_id-66/version_id-40007/Apache-Http-Server-2.2.3.html)
+6. [Jaswal 2020: Mastering Metasploit - 4ed](https://www.oreilly.com/library/view/mastering-metasploit-/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idParaDest-30
+)
