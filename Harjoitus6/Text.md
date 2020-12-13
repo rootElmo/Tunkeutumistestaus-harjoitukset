@@ -101,9 +101,35 @@ Saimme haaviimme **ftp**-tunnukset! Käyttäjä: **ftp**, salasana: **admin**
 
 ![hydra002.png](./kuvat/hydra002.png)
 
+Kokeilin vielä kirjautumista kohdemaaliin saamillani tunnuksilla ja se onnistui!
 
-## Kohta e
+    $ ftp 192.168.42.94
 
+![hydra003.png](./kuvat/hydra003.png)
+
+
+
+
+## Kohta e, Kokeile hydraa omaan weppilomakkeeseen
+
+Käynnistin uuden kohdekoneen, jossa tulisin pyörittämään **JuiceShoppia**. Olin joskus aikaisemmin saanut säädettyä **JuiceShopin** joten sen käynnistäminen taustalle oli helppoa. Kokeilin hyökkäyskoneellani näkyisikö **JuiceShop** kohdekoneen portissa 3000 ja kyllä näkyi!
+
+![js001.png](./kuvat/js001.png)
+
+
+Selatessa palvelun etusivua ja lukemalla "tuotearvosteluja" käy ilmi, että niissä näkyvät myös sähköpostiosoitteet, jonka "arvostelun" kirjoittaja on antanut. Löysin mm. mielenkiintoisen **admin@juice-sh.op**-osoitteen. Voimme kokeilla tätä lomakkeelle murtautuessa.
+
+Huomasin yrittäessäni testikirjautumista, että tiedot menevät palvelimelle **POST**-pyynnössä ja vieläpä **JSON**:na.
+
+![js002.png](./kuvat/js002.png)
+
+Yritin seuraavaksi ajaa **hydraa** niin, että käyttäisin löytämääni sähköpostia käyttäjätunnuksena, sekä sanalistaa salasanojen tilalla
+
+    $ hydra -l "admin@juice-sh.op" -P /usr/share/wordlists/metasploit/unix_passwords.txt 192.168.42.201:3000 http-post-form "/rest/user/login:{\"email\":\"admin@juice-sh.op\",\"password\":\"^PASS^\"}"
+
+Se ei mennyt läpi vaan antaa virheilmoitusta. En ollut oikein varma tuosta, joten päätin lueskella lisää aiheesta.
+
+![js003.png](./kuvat/js003.png)
 
 
 
@@ -121,3 +147,5 @@ Saimme haaviimme **ftp**-tunnukset! Käyttäjä: **ftp**, salasana: **admin**
 
 
 2. [AskUbuntu](https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal)
+3. [Juiceshop](https://owasp.org/www-project-juice-shop/)
+4. [Juiceshopin asennusohjeet](https://hub.docker.com/r/bkimminich/juice-shop)
