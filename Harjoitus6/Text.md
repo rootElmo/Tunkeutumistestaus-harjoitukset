@@ -155,6 +155,8 @@ jolla saisin sanalistan aikaiseksi. Komennosta huomioitavaa:
 **Cewl** sai hienosti napattua kaiken, kirjoitusvirheitä myöten. Huomioitavaa myös, että tulokset sisälsivät erikseen **cewlin** löytämän sähköpostiosoitteen. Vakiona **cewl** jättää alle 3 merkkiset sanat pois tuloksista. Käytin [cewlin man sivuja (manpages.org)](http://manpages.org/cewl)
  apuna.
 
+![cewl002.png](./kuvat/cewl002.png)
+
 ## kohta h, Joukkoäly
 
 Dirsearchin käyttö [(Janica Fagerholm)](https://janicafagerblom.wordpress.com/2020/12/06/tehtava-5/), en ollut itse törmännyt työkaluun aikaisemmin, joten tämä olisi jotain, mitä voisi tulevaisuudessa kokeilla.
