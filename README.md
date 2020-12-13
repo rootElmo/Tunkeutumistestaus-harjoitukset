@@ -11,3 +11,5 @@
 ### [Harjoitus 4](./Harjoitus4/Text.md)
 
 ### [Harjoitus 5](./Harjoitus5/Text.md)
+
+### [Harjoitus 6](./Harjoitus6/Text.md)
