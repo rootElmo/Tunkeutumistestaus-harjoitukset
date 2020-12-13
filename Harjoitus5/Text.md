@@ -6,6 +6,25 @@ Tehtävänanto kokonaisuudessaan kohdassa **H5** [Tero Karvisen nettisivuilla](h
 
 Lue artikkelit ja katso videot, tee kustakin muistiinpanot
 
+Lähde: [Jaswal 2020: Mastering Metasploit - 4ed](https://www.oreilly.com/library/view/mastering-metasploit-/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idParaDest-30
+)
+
+Metasploitilla on mahdollista suorittaa valmiita hyökkäyksiä tunnettuja haavoittuvuuksia vastaan kohdekoneilla.
+
+  * **Exploits:** suorittaa valitun hyökkäyksen määriteltyä kohdetta tai kohteita vastaan
+  * **Payload:** hyökkäykseen valittu hyötykuorma, joka tullaan ajamaan kohdekonetta vastaan ***exploitia** käytettäessä
+  * **Auxiliary:** joukko erinäköisiä moduleita auttamaan hyökkäyksessä, sitä ennen, sen aikana tai sen jälkeen
+  * **Encoders:** näillä eri moduleita pyritään piilottamaan kohdekoneelta palomuurien tai viruksentorjuntaohjelmistojen ohittamiseksi
+  * **Meterpreter:** hyötykuorma, joka kirjoittaa itsensä kohdekoneen muistiin
+
+Lähdeartikkeli esittelee myös useita **metasploitin** peruskomentoja ja niiden toiminnallisuutta.
+
+  * **use:** käytä valitsemaasi hyökkäystä
+  * **info:** listaa tiedot haluamastasi modulista tai hyökkäyksestä
+  * **set:** asettaa muuttujia hyökkäykselle, jonka pohjalta hyökkäys toimii, esim. kohdekoneen **IP-osoite**, **sanalistat**
+  * **search:** hakee **metasploitin** tietokannasta annetuilla hakusanoilla moduleita, hyökkäyksiä tmv.
+
+
 ## Kohta a /// Metasploitable
 
 Asenna Metasploitable 2. Murtaudu sille useilla tavoilla
@@ -129,3 +148,5 @@ Löytyi kolme vaihtoehtoa, jotka vaikuttaisivat kokeilun arvoisilta:
 3. [Securing Ninja](https://securingninja.com/how-to-install-metasploitable-in-virtualbox/)
 4. [rapid7](https://www.rapid7.com/db/modules/exploit/unix/ftp/vsftpd_234_backdoor/)
 5. [cvedetails](https://www.cvedetails.com/vulnerability-list/vendor_id-45/product_id-66/version_id-40007/Apache-Http-Server-2.2.3.html)
+6. [Jaswal 2020: Mastering Metasploit - 4ed](https://www.oreilly.com/library/view/mastering-metasploit-/9781838980078/B15076_01_Final_ASB_ePub.xhtml#_idParaDest-30
+)
