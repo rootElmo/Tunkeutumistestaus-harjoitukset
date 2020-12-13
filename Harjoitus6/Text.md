@@ -75,6 +75,31 @@ Loin myös **sha512**-tiivisteen ja mursin sen.
 
 ## Kohta d, kokeile hydraa johonkin uuteen maaliin
 
+Käynnistin taustalle **Metasploitable 2** harjoitusmaalin. Koneen käynnistyttyä testasin pingillä yhteyden, sekä ajoin **nmapin** konetta vastaan hyökkäyskoneelta katsoakseni mitä palveluita koneesta löytyisi avoinna.
+
+    $ ping 192.168.42.94
+    $ nmap -sV --reason 192.168.42.94 -oA msfmap
+
+![hydra001.png](./kuvat/hydra001.png)
+
+Ajattelin kokeilla murtautua **ftp**-palveluun. Ajoin **hydran** seuraavalla komennolla:
+
+    $ hydra -L /usr/share/wordlists/metasploit/unix_users.txt -P /usr/share/wordlists/metasploit/unix_passwords.txt ftp://192.168.b42.94 -I -V -u -F -t 64
+
+Komento koostuu seuraavista:
+
+ * -L /usr/sha.... - kertoo, että tullaan käyttämään listaa mahdollisista käyttänimistä ja seuraavaksi sanalistan sijainti
+ * -P - sama kuin *-L*, mutta salasanoille
+ * ftp://192.168.b42.94 - kertoo palvelun, sekä kohdekoneen IP:n. Käyttää annetun palvelun vakioporttia, ellei sitä erikseen mainita toiseksi (ftp -> portti 21)
+ * -I - Hydra on huomioimatta mahdollisia aikaisempia ajoja, eikä herjaa niistä
+ * -V - Korkeahko verbositetti (tulostaa paljon tietoa)
+ * -u - Kokeilee yhtä salasanaa per käyttäjä
+ * -F - Lopettaa heti, kun löytää jonkin toimivan käyttäjä:salasana yhdistelmän
+ - -t 64 - Kertoo kuinka monta yritystä tullaan ajamaan rinnan. Laitoin maksimimäärän 64, sillä virtuaalikoneella ajaminen suhteellisen hidasta.
+
+Saimme haaviimme **ftp**-tunnukset! Käyttäjä: **ftp**, salasana: **admin**
+
+![hydra002.png](./kuvat/hydra002.png)
 
 
 ## Kohta e
