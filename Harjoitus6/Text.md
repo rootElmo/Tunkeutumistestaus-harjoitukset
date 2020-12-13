@@ -136,21 +136,42 @@ Löysin aiheesta keskustelua [security.stackexchangessa](https://security.stacke
 Löysin myös [mielenkiintoisen artikkelin (redteamtutorials)](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/), jossa yritettiin murtautua kirjautumislomakkeelle, joka ei käyttänyt JSONia. Vastaavanlainen hyökkäys olisi varmaankin helpommin onnistunut, mutten ole kummoinen webbikoodari, enkä tiennyt, millä hakea harjoitusmaaleja, joissa kyseisen tyylinen kirjautumislomake.
 
 
-## kohta f
+## kohta f, Tee oma sanalista itse tekemästäsi ja keksimästäsi weppisivusta
+
+Loin aluksi kevyen testisivun **nginx**-vakiosivun päälle kohdekoneessani. Kohdekone on sama, kuin missä aikaisemmin pyöri **JuiceShop**. Kävin hyökkäyskoneella katsomassa, että kohdekoneen sivu näkyi ulospäin.
+
+![cewl001](./kuvat/cewl001.png)
+
+Seuraavaksi ajoin komennon
+
+    $ cewl -e -a -w elmosivulista 192.168.42.201
+
+jolla saisin sanalistan aikaiseksi. Komennosta huomioitavaa:
+
+  * -e - sisällyttää tuloksiin sähköpostit erikseen
+  * -a - sisällyttää tuloksiin metadatan
+  * -w (tiedostonimi) - tulostaa tulokset tiedostoon
+
+**Cewl** sai hienosti napattua kaiken, kirjoitusvirheitä myöten. Huomioitavaa myös, että tulokset sisälsivät erikseen **cewlin** löytämän sähköpostiosoitteen. Vakiona **cewl** jättää alle 3 merkkiset sanat pois tuloksista. Käytin [cewlin man sivuja (manpages.org)](http://manpages.org/cewl)
+ apuna.
+
+## kohta h, Joukkoäly
+
+Dirsearchin käyttö [(Janica Fagerholm)](https://janicafagerblom.wordpress.com/2020/12/06/tehtava-5/), en ollut itse törmännyt työkaluun aikaisemmin, joten tämä olisi jotain, mitä voisi tulevaisuudessa kokeilla.
+
+LinPEAs käyttö [(Patrik Sulander)](https://patriksulander.law.blog/2020/11/30/tunkeutumistestaus-ict4tn027-3006-h4/). Privesc työkalu, joka itselle tuntematon. Vaikuttaa mielenkiintoiselta.
 
 
 
-## kohta g
-
-
-
-## kohta h
 
 # Lähteet
 
-
+1. [Tero Karvinen](http://terokarvinen.com/2020/tunkeutumistestaus-kurssi-pentest-course-ict4tn027-3006-autumn-2020/)
 2. [AskUbuntu](https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal)
 3. [Juiceshop](https://owasp.org/www-project-juice-shop/)
 4. [Juiceshopin asennusohjeet](https://hub.docker.com/r/bkimminich/juice-shop)
 5. [StackExchange](https://security.stackexchange.com/questions/57839/hydra-bruteforce-and-json)
 6. [redteamtutorials](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/)
+7. [manpages](http://manpages.org/cewl)
+8. [Janica Fagerholm](https://janicafagerblom.wordpress.com/2020/12/06/tehtava-5/)
+9. [Patrik Sulander](https://patriksulander.law.blog/2020/11/30/tunkeutumistestaus-ict4tn027-3006-h4/)
