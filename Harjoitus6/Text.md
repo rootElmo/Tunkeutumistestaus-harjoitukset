@@ -131,6 +131,9 @@ Se ei mennyt läpi vaan antaa virheilmoitusta. En ollut oikein varma tuosta, jot
 
 ![js003.png](./kuvat/js003.png)
 
+Löysin aiheesta keskustelua [security.stackexchangessa](https://security.stackexchange.com/questions/57839/hydra-bruteforce-and-json), mutten oikein ymmärtänyt asiasta sen enempää. En tiedä, kuinka olisin soveltanut tuolta löytyvää tietoa omaan ongelmaani.
+
+Löysin myös [mielenkiintoisen artikkelin (redteamtutorials)](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/), jossa yritettiin murtautua kirjautumislomakkeelle, joka ei käyttänyt JSONia. Vastaavanlainen hyökkäys olisi varmaankin helpommin onnistunut, mutten ole kummoinen webbikoodari, enkä tiennyt, millä hakea harjoitusmaaleja, joissa kyseisen tyylinen kirjautumislomake.
 
 
 ## kohta f
@@ -149,3 +152,5 @@ Se ei mennyt läpi vaan antaa virheilmoitusta. En ollut oikein varma tuosta, jot
 2. [AskUbuntu](https://askubuntu.com/questions/53846/how-to-get-the-md5-hash-of-a-string-directly-in-the-terminal)
 3. [Juiceshop](https://owasp.org/www-project-juice-shop/)
 4. [Juiceshopin asennusohjeet](https://hub.docker.com/r/bkimminich/juice-shop)
+5. [StackExchange](https://security.stackexchange.com/questions/57839/hydra-bruteforce-and-json)
+6. [redteamtutorials](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/)
